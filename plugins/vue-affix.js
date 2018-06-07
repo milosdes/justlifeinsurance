@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import VueAffix from 'vue-affix'
+import Vue from "vue"
+import Affix from "vue-affix"
 
-Vue.use(VueAffix)
+Vue.use(Affix)

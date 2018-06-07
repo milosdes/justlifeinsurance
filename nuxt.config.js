@@ -29,10 +29,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    "~plugins/vue-scrollto.js"
-    // '~plugins/vue-affix.js'
-  ],
+  plugins: ["~plugins/vue-scrollto.js", "~plugins/vue-affix.js"],
 
   /*
   ** Nuxt.js modules

@@ -15,12 +15,16 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/bulma": "^1.0.3",
+    "@nuxtjs/font-awesome": "^1.0.3",
     "bulma": "^0.7.1",
     "css-loader": "^0.28.11",
+    "font-awesome": "^4.7.0",
     "koa": "^2.3.0",
     "nuxt": "^1.4.1",
+    "nuxt-bulma-slim": "^0.3.2",
     "sass-loader": "^7.0.3",
     "vue-affix": "^0.2.4",
+    "vue-bulma-expanding": "0.0.1",
     "vue-scrollto": "^2.11.0",
     "vue-stepper": "^1.0.11",
     "vue-style-loader": "^4.1.0",
@@ -33,6 +37,7 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.9.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "nuxt-sass-resources-loader": "^2.0.2"
   }
 }

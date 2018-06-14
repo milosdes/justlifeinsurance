@@ -4,10 +4,10 @@
 <section class="hero is-medium is-primary is-bold">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title is-1">
         $#!% happens in life
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle is-4">
         Learn more so you can make an informed decision about life insurance.
       </h2>
         <nuxt-link to="/questionnaire" class="button is-rounded float is-pulled-right">Click here for an assessment</nuxt-link>
@@ -86,4 +86,17 @@ export default {
 </script>
 
 <style>
+.catbox {
+  height: 100%;
+  padding: 20px;
+  background-color: #eeeeee33;
+}
+
+.columns {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.catbox:hover {
+  background-color: #c5c5c517;
+}
 </style>

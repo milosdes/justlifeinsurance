@@ -20,5 +20,15 @@ export default {
 
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300|Hind+Guntur|Lato:300|Muli:400|Palanquin|Source+Sans+Pro:400|Tajawal');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300|Roboto:300');
+ body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
 
+h1, h2  {
+  margin-top: 40px;
+  font-family: 'Nunito', sans-serif;
+} 
 </style>

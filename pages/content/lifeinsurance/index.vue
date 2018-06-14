@@ -1,6 +1,19 @@
 <template>
+
+<div>
+    <section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        Life Insurance
+      </h1>
+    
+    </div>
+  </div>
+</section>
 <section class="section">
 <div class="container">
+    
 <div class="columns">
    
    
@@ -10,7 +23,7 @@
   <ul class="menu-list">
     
     <li>
-      <a class="is-active">Life Insurance</a>
+   
       <ul>
         <li><a href="#" v-scroll-to="'#lifeinsurance-two'">What is it?</a></li>
         <li><a href="#" v-scroll-to="'#lifeinsurance-three'">Why is this important?</a></li>
@@ -25,19 +38,10 @@
    
     <div class="column is-two-thirds">
         <div id="my-listed-content">
-       <div id="lifeinsurance-one">
-       <h1 class="title">Life Insurance</h1>
-        <p class="subtitle">
-            A tool that can be utilized to provide peace of mind for the ones you care about in the event of your death.
-        </p>
-        <p>
-            A contract is established between you and an Insurance Company which guarantees a specified amount of money will be paid to the beneficiary (or beneficiaries) of your choice if you pass away. There are different ways to structure the policy but the death benefit is normally tax-free and bypasses probate - this means your beneficiaries will receive the funds quickly.
-            Your beneficiaries will receive a cheque and be able to use the funds however they feel would best serve them.
-        </p>
-    </div> 
+      
   
 <div id="lifeinsurance-two">
-     <h1 class="title">What is it?</h1>
+     <h1 class="title is-2">What is it?</h1>
     <p>
         A contract is established between you and an insurance company which guarantees a specified amount of money will be paid to the beneficiary (or beneficiaries) of your choice if you pass away. 
 
@@ -83,7 +87,9 @@ People typically start to think about life insurance when they are about to take
 </div>
 </div>
 
+
     </section>
+    </div>
 </template>
 
 <script>

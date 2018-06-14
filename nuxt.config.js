@@ -24,7 +24,10 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ["@/assets/styles/main.css"],
+  css: [
+    { src: '~/assets/styles/main.scss', lang: 'scss' },
+    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' }
+  ],
 
   /*
   ** Plugins to load before mounting the App
@@ -38,7 +41,11 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     "@nuxtjs/axios",
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    "@nuxtjs/bulma"
+    "@nuxtjs/font-awesome",
+   
+    //"@nuxtjs/bulma",
+    //['nuxt-sass-resources-loader', './assets/styles/main.sass']
+
   ],
   /*
   ** Axios module configuration

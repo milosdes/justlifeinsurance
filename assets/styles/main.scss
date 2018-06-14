@@ -1,0 +1,16 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+// customize styles
+$black: #343434;
+
+$link: $grey-dark;
+$link-hover: $grey;
+
+$family-primary: $family-sans-serif;
+$body-weight: $weight-light;
+
+.title {
+    color: aqua;
+}
+
+@import '~bulma';

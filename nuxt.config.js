@@ -26,13 +26,16 @@ module.exports = {
   */
   css: [
     { src: '~/assets/styles/main.scss', lang: 'scss' },
-    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' }
+    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' },
+    
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ["~plugins/vue-scrollto.js", "~plugins/vue-affix.js"],
+  plugins: [
+    //{ src: '~plugins/vue-blu.js', ssr: false }
+  ],
 
   /*
   ** Nuxt.js modules

@@ -1,5 +1,13 @@
+
+
+
+
+
+
+
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
+
 // customize styles
 $black: #343434;
 
@@ -14,3 +22,8 @@ $body-weight: $weight-light;
 }
 
 @import '~bulma';
+
+
+
+// import the entry file
+//@import "~vue-blu/src/scss/blu";

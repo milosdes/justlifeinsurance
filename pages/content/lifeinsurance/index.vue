@@ -1,59 +1,61 @@
 <template>
 
 <div>
-    <section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title is-1">
-        Life Insurance
-      </h1>
+
+
+
     
-    </div>
-  </div>
-</section>
+  
+
+
 <section class="section">
 <div class="container">
-    
-<div class="columns">
-   
-   
-    <aside class="column menu">
- <affix class="sidebar-menu" relative-element-selector="#my-listed-content" :offset="{ top: 40, bottom: 40 }">
-  
-  <ul class="menu-list">
-    
-    <li>
-   
-      <ul>
-        <li><a href="#" v-scroll-to="'#lifeinsurance-two'">What is it?</a></li>
-        <li><a href="#" v-scroll-to="'#lifeinsurance-three'">Why is this important?</a></li>
-        <li><a href="#" v-scroll-to="'#lifeinsurance-four'">Things to keep in mind</a></li>
-        <li><a href="#" v-scroll-to="'#lifeinsurance-five'">Permanent Life Insurance</a></li>
-      </ul>
-    </li>
-  </ul>
- </affix>
-</aside>
-      
-   
-    <div class="column is-two-thirds">
+
+
+      <h1 class="title is-1 has-text-weight-light">
+        Life Insurance
+      </h1>
+      <hr>
+  <br>
         <div id="my-listed-content">
       
   
-<div id="lifeinsurance-two">
-     <h1 class="title is-2">What is it?</h1>
-    <p>
-        A contract is established between you and an insurance company which guarantees a specified amount of money will be paid to the beneficiary (or beneficiaries) of your choice if you pass away. 
+<div class="contentblock" id="lifeinsurance-one">
 
-There are different ways to structure the policy but the death benefit is normally tax-free and bypasses *probate* - this means that the funds will be available to your beneficiaries quickly. 
+<div class="columns">
+    <div class="column is-one-third has-text-right">
+        <img width="100px" src="~/assets/icons/quotation.svg" />
+        <div class="contentboxheader">
+             <h1 class="title is-1 has-text-weight-light">What</h1>
+             <h2 class="subtitle is-3 ">is it?</h2>
+        </div>
+       
+    </div>
+    <div class="column is-half">
+        <div class="contenttext">
+            <p class=" has-text-weight-bold">
+            A contract is established between you and an insurance company which guarantees a specified amount of money will be paid to the beneficiary (or beneficiaries) of your choice if you pass away. 
+            </p>
+            <p>
+            There are different ways to structure the policy but the death benefit is normally tax-free and bypasses *probate* - this means that the funds will be available to your beneficiaries quickly. 
 
-You and your loved ones will have peace of mind knowing that, if you pass away, your beneficiaries will receive a cheque and be able to use the funds however they feel would *best serve them*.
-    </p>
+            You and your loved ones will have peace of mind knowing that, if you pass away, your beneficiaries will receive a cheque and be able to use the funds however they feel would *best serve them*.
+            </p>
+    </div> 
+    </div>
+</div>   
+   
 </div>
 
-<div id="lifeinsurance-three">
-    <h1 class="title">Why is this important?</h1>
-    <p class="is-italic">
+
+<div class="contentblock" id="lifeinsurance-two">
+
+<div class="columns">
+    
+   
+    <div class="column is-half is-offset-2">
+        <div class="contenttext">
+            <p class="has-text-weight-bold">
         If you start your working career at age 25 and planned to work until 65 (40 years) making $25,000 per year, you would have made $1,000,000 in your lifetime.
     </p>
     <p>
@@ -62,6 +64,23 @@ This highly simplified example highlights one thing - your ability to generate i
     <p>
 Purchasing life insurance is one way to ensure the people you care about have some form of protection in case something happens to you.
     </p>
+    </div> 
+    </div>
+    <div class="column is-one-third has-text-centered">
+        <img width="100px" src="~/assets/icons/quotation.svg" />
+        <div class="contentboxheader">
+             <h1 class="title is-1 has-text-weight-light">Why</h1>
+             <h2 class="subtitle is-3 ">is this important?</h2>
+        </div>
+       
+    </div>
+</div>  
+
+</div>
+
+<div id="lifeinsurance-three">
+    <h1 class="title">Why is this important?</h1>
+    
 </div>
 <div id="lifeinsurance-four">
     <h1 class="title">Things to keep in mind</h1>
@@ -83,27 +102,38 @@ People typically start to think about life insurance when they are about to take
     </p>
 </div>
      </div>  
-    </div>
-</div>
 </div>
 
 
     </section>
+
+  
     </div>
 </template>
 
 <script>
+
 export default {
+
+
+
   transition: "fadeOpacity",
   data: function() {
     return {
-      myShowDiv: false
+      isShow: false,
     };
+  },
+  methods: {
+      toggle() {
+          this.isShow = !this.isShow;
+      },
   }
 };
 </script>
 
 <style scoped>
+
+
 .fadeOpacity-enter-active,
 .fadeOpacity-leave-active {
   transition: opacity 0.35s ease-out;
@@ -113,7 +143,7 @@ export default {
 .fadeOpacity-leave-active {
   opacity: 0;
 }
-.vue-affix {
-  width: 250px;
-}
+
+
+
 </style>

@@ -15,6 +15,8 @@
   </div>
 </section>
 
+
+
   <section class="section">
     <div class="container">
 
@@ -22,6 +24,7 @@
       <div class="column">
           <nuxt-link to="/content/lifeinsurance">
           <div class="catbox">
+            <i class="fa-check-square-o"></i>
             <h2 class="title is-size-3">Life Insurance</h2> 
             <p>
               Providing financial security to the ones you leave behind in the event of your death.
@@ -79,7 +82,7 @@ export default {
 
   data: function() {
     return {
-      test: "jack shit"
+      test: "my-test"
     };
   }
 };

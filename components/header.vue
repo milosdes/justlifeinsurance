@@ -5,7 +5,7 @@
   <nav class="navbar">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          Just Life Insurance
+         
         </a>
         <!--
     Using the v-on: directive to listen for the click event and toggle the data property showNav. Also, using the v-bind: directive to reactively update the class attribute 'is-active' based on the showNav property.

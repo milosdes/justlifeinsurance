@@ -15,6 +15,25 @@
     <li><nuxt-link to="/content/longtermcare">Long Term Care Insurance</nuxt-link></li>
    
   </ul>
+  <br>
+  <p class="menu-label">
+    Additional Information
+  </p>
+  <ul class="menu-list">
+    <li><nuxt-link to="/content/thingstoknow">Things to know</nuxt-link></li>
+    <li><nuxt-link to="/assessment">Take an assessment</nuxt-link> </li>
+  </ul>
+
+  <br>
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li><nuxt-link to="/about">About this page</nuxt-link></li>
+    <li><nuxt-link to="/privacy">Privacy</nuxt-link> </li>
+    <li><nuxt-link to="/contact">Contact</nuxt-link> </li>
+ 
+  </ul>
   
 </aside>
 </template>

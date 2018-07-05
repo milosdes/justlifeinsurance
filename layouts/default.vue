@@ -1,16 +1,17 @@
 <template>
-  <div >
+  <div>
 
          <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-beforeopen="beforeopen" @on-open="open" @on-beforeclose="beforeclose">
       <nav id="menu">
         <Menu />
       </nav>
       <main id="panel" class="panel">
-        <header>
+        <Header />
+        <!-- <header>
           <div id="menubutton">
             <a class="toggle-button">☰</a>
           </div>
-        </header>
+        </header> -->
          <nuxt />
             <Footer />
       </main>
@@ -21,17 +22,20 @@
 </template>
 
 <script>
+import Header from "~/components/header.vue";
 import Menu from "~/components/menu.vue";
 import Footer from "~/components/footer.vue";
 
 export default {
   components: {
+    Header,
     Menu,
     Footer
   },
 
   methods: {
-    close: function() {
+    close: function(eve) {
+      eve.preventDefault();
       this.$children[0].slideout.close();
     },
     beforeopen: function() {
@@ -66,7 +70,6 @@ body {
   font-family: 'Lato', sans-serif; 
   */
   font-family: "Lato", sans-serif;
-
   font-size: 17px;
 }
 
@@ -78,19 +81,26 @@ h1 {
   /* 
   font-family: 'Lora', serif;
   font-family: 'Abhaya Libre', serif; 
-  
-
   */
 }
 
-.headline {
-  font-family: "Lato", sans-serif;
-}
-
-.textpage {
-  padding-left: 3%;
-  padding-right: 3%;
-}
+/* .contentheader {
+  margin-bottom: 5em;
+  background: rgb(184, 255, 200);
+  background: linear-gradient(
+    132deg,
+    rgb(242, 255, 245) 0%,
+    rgb(188, 255, 197) 46%,
+    rgba(207, 241, 255, 0.479) 100%
+  );
+  overflow: visible;
+  padding-left: 50em;
+  margin-left: -50em;
+  padding-right: 50em;
+  margin-right: -50em;
+  padding-top: 50em;
+  margin-top: -50em;
+} */
 
 .contentblock {
   margin-top: 2em;
@@ -105,12 +115,19 @@ h2 {
 
 .contentblock p {
   margin-bottom: 0.6em;
-  font-size: 1.1em;
 }
 
 .contentboxheader {
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 0px;
+}
+
+.contentboxheader .title {
+  word-break: keep-all;
+}
+
+.contentboxheader .subtitle {
+  word-break: keep-all;
 }
 
 /* .contentboxheader {
@@ -128,16 +145,27 @@ text-align: center;
   padding-top: 2.2em;
 }
 
+.gradientbg {
+  background: rgb(184, 255, 200);
+  background: linear-gradient(
+    132deg,
+    rgba(242, 255, 245, 0.452) 0%,
+    rgba(235, 255, 250, 0.493) 46%,
+    rgba(207, 241, 255, 0.479) 100%
+  );
+}
+
 @media screen and (min-width: 767px) {
-  /* .contentblock {
+  .contentblock {
     padding: 50px;
   }
   .contenttext {
-  padding: 20px;
-} */
+    padding: 0px;
+  }
+
   .textpage {
-    padding-left: 12%;
-    padding-right: 12%;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
@@ -149,6 +177,14 @@ text-align: center;
   text-align: left;
 }
 
+.my-sidebox {
+  margin-top: 5em;
+}
+
+.my-sidebox p {
+  margin-top: 0.6em;
+}
+
 @media screen and (max-width: 768px) {
   .contentboxheader {
     text-align: center;
@@ -158,7 +194,6 @@ text-align: center;
 /* menu */
 
 #menubutton {
-  padding: 0.5em;
   font-size: 3em;
   color: #fff;
 }
@@ -218,9 +253,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("../assets/images/background.png");
 
+  background-image: url("../assets/images/background2.png");
   background-repeat: no-repeat;
+
   width: 100%;
   height: 100%;
   opacity: 0.9;

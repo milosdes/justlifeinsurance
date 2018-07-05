@@ -1,12 +1,5 @@
-
-
-
-
-
-
-
-@import '~bulma/sass/utilities/initial-variables';
-@import '~bulma/sass/utilities/functions';
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
 // customize styles
 $black: #343434;
@@ -17,13 +10,17 @@ $link-hover: $grey;
 $family-primary: $family-sans-serif;
 $body-weight: $weight-light;
 
+$box-background-color: #daffe6;
+
 .title {
-    color: aqua;
+  color: aqua;
 }
 
-@import '~bulma';
+.navbar {
+  &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+  }
+}
 
-
-
-// import the entry file
-//@import "~vue-blu/src/scss/blu";
+@import "~bulma";

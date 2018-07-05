@@ -19,26 +19,20 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: "#00FFFF" },
+  loading: { color: "#09ff00" },
 
   /*
   ** Global CSS
   */
   css: [
-    { src: '~/assets/styles/main.scss', lang: 'scss' },
-    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' },
-    
+    { src: "~/assets/styles/main.scss", lang: "scss" }
+    /*   { src: "font-awesome/scss/font-awesome.scss", lang: "scss" } */
   ],
-
-
-  
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    { src: '~plugins/vue-slideout.js', ssr: false }
-  ],
+  plugins: [{ src: "~plugins/vue-slideout.js", ssr: false }],
 
   /*
   ** Nuxt.js modules
@@ -47,11 +41,10 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     "@nuxtjs/axios",
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    "@nuxtjs/font-awesome",
-   
+    "@nuxtjs/font-awesome"
+
     //"@nuxtjs/bulma",
     //['nuxt-sass-resources-loader', './assets/styles/main.sass']
-
   ],
   /*
   ** Axios module configuration
@@ -64,12 +57,7 @@ module.exports = {
   ** Build configuration
   */
 
-
-
-
   build: {
-    
-
     postcss: {
       plugins: {
         "postcss-cssnext": {
@@ -92,9 +80,6 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-
-     
-
     }
   }
 };

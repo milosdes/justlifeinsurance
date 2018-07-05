@@ -1,16 +1,24 @@
 <template>
   <div>
  
-<section class="hero is-bold">
+<section class="hero">
   <div class="hero-body my-hero">
-    <div class="container textpage">
-      <h1 class="title has-text-weight-bold is-1">
-        $#!% <br> Happens <br> In Life
-      </h1>
-      <h2 class="subtitle is-4">
-        Learn more so you can make an informed decision about life insurance.
-      </h2>
-        <nuxt-link to="/assessment" class="button is-rounded float is-pulled-right">Click here for an assessment</nuxt-link>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title has-text-weight-bold is-1">
+            $#!% <br> Happens <br> In Life
+          </h1>
+             <h2 class="subtitle is-4">
+            Helping you make informed decisions about life insurance.
+          </h2>
+        </div>
+        <div class="column is-narrow">
+          <nuxt-link to="/assessment" class="button is-medium is-primary is-outlined is-pulled-right">Click here for an assessment</nuxt-link>
+        </div>
+       
+         
+      </div>
     </div>
   </div>
 </section>
@@ -27,7 +35,7 @@
             
             <h1 class="title is-size-3">Life Insurance</h1> 
             <p>
-              Providing financial security to the ones you leave behind in the event of your death.
+              Make sure finances won't be a concern for your loved ones in the event of your death.
             </p>                
           </div>
         </nuxt-link>
@@ -37,7 +45,7 @@
         <div class="catbox fold">  
           <h1 class="title is-size-3 ">Critical Illness Insurance</h1> 
           <p>
-            Allowing you to focus on recovering if you are diagnosed with one of twenty four covered conditions (cancer, heart attack and stroke being the most common).
+            Focus on recovering or spending your time on the important things if you are diagnosed with a critical illness.
           </p>            
         </div>
         </nuxt-link>
@@ -49,7 +57,7 @@
         <div class="catbox fold">         
           <h1 class="title">Disability Insurance</h1> 
           <p>
-            Supplements or replaces your monthly income if you are unable to work.
+            Supplements or replaces your income if your ability to work is impacted.
           </p>            
         </div>
         </nuxt-link>
@@ -59,7 +67,7 @@
         <div class="catbox fold">
           <h1 class="title">Long Term Care Insurance</h1> 
             <p>
-              Allows you to get help if you aren't able to live independently.
+              Makes it easier to ask for help if you can no longer live independently.
             </p>                 
         </div>
         </nuxt-link>
@@ -76,21 +84,22 @@
 import Logo from "~/components/Logo.vue";
 
 export default {
+  transition: "fadeOpacity",
   components: {
     Logo
-  },
-
-  data: function() {
-    return {
-      test: "my-test"
-    };
   }
 };
 </script>
 
 <style>
 .my-hero {
-  background-image: url("");
+  background: #09ff00;
+  background: linear-gradient(
+    132deg,
+    rgba(242, 255, 245, 0.452) 0%,
+    rgba(188, 255, 197, 0.445) 46%,
+    rgba(226, 246, 255, 0.479) 100%
+  );
 }
 
 .catbox {
@@ -111,7 +120,6 @@ export default {
 .fold {
   padding: 25px 25px;
   position: relative;
-  font-size: 90%;
   text-decoration: none;
   color: #999;
   background: #ffffff;
@@ -139,5 +147,15 @@ export default {
 .fold:hover:before {
   border-width: 0 50px 50px 0;
   border-color: #eee #ffffff;
+}
+
+.fadeOpacity-enter-active,
+.fadeOpacity-leave-active {
+  transition: opacity 0.35s ease-out;
+}
+
+.fadeOpacity-enter,
+.fadeOpacity-leave-active {
+  opacity: 0;
 }
 </style>

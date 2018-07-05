@@ -1,45 +1,27 @@
 <template>
-  <div class="container">
+
   
 
 
-
-  <nav class="navbar">
+  <nav class="navbar my-navbar is-transparent">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-         
-        </a>
-        <!--
-    Using the v-on: directive to listen for the click event and toggle the data property showNav. Also, using the v-bind: directive to reactively update the class attribute 'is-active' based on the showNav property.
-    -->
-        <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div id="menubutton">
+            <a class="toggle-button">☰</a>
+          </div>
+        
+        <nuxt-link class="navbar-item my-logo" to="/">
+         JustLifeInsurance.ca
+        </nuxt-link>
       </div>
-      <!--
-    Using the v-bind: directive to reactively update the class attribute 'is-active' based on the showNav property.
-    -->
-      <div @click="showNav = false" class="navbar-menu" :class="{ 'is-active': showNav }">
-        <div class="navbar-beginning">
-          <nuxt-link to="/" class="navbar-item">
-            Home
-          </nuxt-link>
-        </div>
+      <div class="navbar-menu">
+     
         <div class="navbar-end">
           <br>
-          <nuxt-link to="/content/lifeinsurance" class="navbar-item">
-            Life Insurance
+          <nuxt-link to="/about" class="navbar-item">
+            About
           </nuxt-link>
-          <nuxt-link to="/content/criticalillness" class="navbar-item">
-            Critical Illness Insurance
-          </nuxt-link>
-          <nuxt-link to="/content/disability" class="navbar-item">
-            Disability Insurance
-          </nuxt-link>
-          <nuxt-link to="/content/longtermcare" class="navbar-item">
-            Long Term Care Insurance
+          <nuxt-link to="/privacy" class="navbar-item">
+            Privacy
           </nuxt-link>
           <nuxt-link to="/contact" class="navbar-item">
             Contact
@@ -48,44 +30,23 @@
       </div>
     </nav>
 
-  </div>
+  
+
 
 </template>
 
-<script>
 
-export default {
-  data: function() {
-    return {
-      showNav: false
-    }
-  }
-}
-</script>
 
 
 <style scoped>
-    .header {
-        display: flex;
-        height: 60px;
-        align-items: center;
-        justify-content: center;
-    } 
+.my-navbar {
+  padding-left: 1em;
+  padding-right: 1em;
+}
 
-    .navbar {
-      
-    }
-
-    #navigation li {
-      display: inline;
-      margin: 30px;
-    }    
-
-
-
-
-
-
-
+.my-logo {
+  font-family: "Abhaya Libre", serif;
+  font-size: 1.3em;
+}
 </style>
 

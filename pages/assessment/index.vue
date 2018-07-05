@@ -70,6 +70,7 @@
 
 <script>
 export default {
+  transition: "fadeOpacity",
   components: {},
 
   data: function() {
@@ -322,12 +323,6 @@ export default {
 
 
 <style scoped>
-.answerlabel {
-}
-
-.questionbox {
-}
-
 .assessmentnav ul li {
   display: inline;
   margin: 5px;
@@ -346,6 +341,16 @@ export default {
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {
   transform: translateX(10px);
+  opacity: 0;
+}
+
+.fadeOpacity-enter-active,
+.fadeOpacity-leave-active {
+  transition: opacity 0.35s ease-out;
+}
+
+.fadeOpacity-enter,
+.fadeOpacity-leave-active {
   opacity: 0;
 }
 </style>

@@ -30,11 +30,14 @@ module.exports = {
     
   ],
 
+
+  
+
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    //{ src: '~plugins/vue-blu.js', ssr: false }
+    { src: '~plugins/vue-slideout.js', ssr: false }
   ],
 
   /*
@@ -60,7 +63,13 @@ module.exports = {
   /*
   ** Build configuration
   */
+
+
+
+
   build: {
+    
+
     postcss: {
       plugins: {
         "postcss-cssnext": {
@@ -83,6 +92,9 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
+
+     
+
     }
   }
 };

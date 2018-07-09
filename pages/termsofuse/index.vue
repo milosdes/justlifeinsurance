@@ -3,7 +3,8 @@
         <div class="container">
             <div class="my-textblock">
                 <h1 class="title">Terms of use</h1>
-                <h2 class="subtitle">Overview</h2>
+                <br>
+                <h2 class="subtitle">OVERVIEW</h2>
                
                 <p>This website is operated by justlifeinsurance.ca. Throughout the site, the terms “we”, “us” and “our” refer to justlifeinsurance.ca. We offer this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.</p>
              
@@ -101,6 +102,7 @@
 
                 <h2 class="subtitle">SECTION 20 – CONTACT INFORMATION</h2>
                 <p>Questions about the Terms of Service should be sent to us at info@justlifeinsurance.ca.</p>
+            </div>
         </div>
     </section>
 </template>
@@ -118,5 +120,9 @@
   margin-left: 3em;
   margin-top: 0.1em;
   margin-bottom: 0.5em;
+}
+
+.my-textblock h2 {
+    margin-top: 2em;
 }
 </style>

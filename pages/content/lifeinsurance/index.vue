@@ -23,7 +23,7 @@
         <h1 class="title is-3 headline">
         Life Insurance
       </h1>
-       
+      
        
      
     </div>
@@ -39,7 +39,7 @@
 
 </div><!--end contentheader-->
 
-
+ <social/>
 <!--begin main columns-->
 
 <div class="columns is-8 is-variable is-desktop">
@@ -200,7 +200,14 @@ Growth - the death benefit can increase over time based on the Insurer's rate of
 </template>
 
 <script>
+
+import Social from "~/components/social.vue";
+
+
 export default {
+    components: {
+        Social
+    },
   transition: "fadeOpacity"
 };
 </script>

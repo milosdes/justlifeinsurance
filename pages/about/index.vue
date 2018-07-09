@@ -3,6 +3,7 @@
         <div class="container">
             <div class="my-textblock">
                 <h1 class="title">About</h1>
+                <br>
                 <h2 class="subtitle">This website is meant to explain the principles of life insurance in a simplified and understandable way. The hope is to give users the knowledge necessary to make an informed decision about their needs and whether insurance should be considered.</h2>
                 <br>
                 <p>There were three assumptions made when creating this website:
@@ -33,5 +34,9 @@
   margin-left: 3em;
   margin-top: 0.1em;
   margin-bottom: 0.5em;
+}
+
+.my-textblock h2 {
+    margin-top: 2em;
 }
 </style>

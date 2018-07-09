@@ -48,9 +48,9 @@
 
 <!--begin main columns-->
 
-<div class="my-listed-content columns is-8 is-variable">
+<div class="my-listed-content columns is-8 is-variable is-desktop">
      
-     <div class="column is-three-quarters"> 
+     <div class="column is-two-thirds-desktop"> 
       
 <!--begin contentblock 1-->  
 <div class="contentblock">
@@ -121,10 +121,13 @@
 
 </div>
 
-<div class="column is-narrow is-one-quarter">
+<div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
+          <span class="icon is-large is-pulled-right">
+  <i class="fa fa-info-circle fa-2x"></i>
+</span>
         <h2 class="subtitle">Things to keep in mind</h2>
-        
+        <br>
 <p>
 Family and friends are often able to provide assistance if the need arises but some conditions may persist for long periods of time. While they may be happy to help, these caregivers are required to make large sacrifices.
 </p>

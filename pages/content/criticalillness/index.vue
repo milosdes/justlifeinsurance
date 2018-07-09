@@ -42,15 +42,13 @@
 
     
 
-<div id="my-listed-content">
-
 
 
 <!--begin main columns-->
 
-<div class="my-listed-content columns is-8 is-variable">
+<div class="my-listed-content columns is-8 is-variable is-desktop">
      
-     <div class="column is-three-quarters">     
+     <div class="column is-two-thirds-desktop">     
 
 <!--begin contentblock 1--> 
 <div class="contentblock">
@@ -167,10 +165,13 @@
 
 
 
-<div class="column is-narrow is-one-quarter">
+<div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
+          <span class="icon is-large is-pulled-right">
+  <i class="fa fa-info-circle fa-2x"></i>
+</span>
         <h2 class="subtitle">Things to keep in mind</h2>
-        
+        <br>
 <p>
 Critical Illness contracts have very strict definitions in terms of what's covered and what needs to be satisfied to receive the benefit.
 </p>
@@ -185,7 +186,7 @@ The strict definitions mean that, if you satisfy the terms of the contract, the 
 </div>
 </div> <!--end main columns-->
 
-</div>
+
 
     </section>
 

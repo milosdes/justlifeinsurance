@@ -1,13 +1,13 @@
 <template>
   <div>
  
-<section class="hero">
+<section class="hero is-medium">
   <div class="hero-body my-hero">
     <div class="container">
       <div class="columns">
         <div class="column">
           <h1 class="title has-text-weight-bold is-1">
-            $#!% <br> Happens <br> In Life
+            $#!% Happens In Life
           </h1>
              <h2 class="subtitle is-4">
             Helping you make informed decisions about life insurance.
@@ -92,20 +92,45 @@ export default {
 </script>
 
 <style>
+
 .my-hero {
-  background: #09ff00;
-  background: linear-gradient(
-    132deg,
-    rgba(242, 255, 245, 0.452) 0%,
-    rgba(188, 255, 197, 0.445) 46%,
-    rgba(226, 246, 255, 0.479) 100%
-  );
+  position: relative;
 }
+
+.my-hero {
+  content: "";
+  display: block;
+/*   background: #09ff00;
+  background: linear-gradient(
+    172deg,
+    #f2fff500 0%,
+    rgba(188, 255, 197, 0.445) 46%,
+    rgba(75, 210, 156, 0.479) 100%
+  ); */
+  
+}
+
+.my-hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  background-position-y: bottom;
+  background-position-x: 60%;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+
 
 .catbox {
   height: 100%;
   padding: 20px;
   background-color: #ffffffe0;
+  
 }
 
 .columns {
@@ -114,7 +139,7 @@ export default {
 }
 .catbox:hover {
   background-color: #fafafa;
-  box-shadow: 5px 10px #cfcfcf;
+  box-shadow:  0px 10px #cfcfcf;
 }
 
 .fold {
@@ -122,7 +147,7 @@ export default {
   position: relative;
   text-decoration: none;
   color: #999;
-  background: #ffffff;
+  background: #fafafa;
   transition: all ease 0.5s;
 }
 
@@ -137,7 +162,7 @@ export default {
   right: 0;
   border-style: solid;
   border-width: 0 25px 25px 0;
-  border-color: #dddddd #ffffff00;
+  border-color: #dddddd #ffffff;
   transition: all ease 0.5s;
 }
 

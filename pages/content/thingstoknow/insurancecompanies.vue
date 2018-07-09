@@ -37,14 +37,13 @@
     </section>
 </template>
 
-<style scoped>
-.fadeOpacity-enter-active,
-.fadeOpacity-leave-active {
-  transition: opacity 0.35s ease-out;
+<script>
+export default {
+    transition: "fadeOpacity"
 }
+</script>
 
-.fadeOpacity-enter,
-.fadeOpacity-leave-active {
-  opacity: 0;
-}
+
+<style scoped>
+
 </style>

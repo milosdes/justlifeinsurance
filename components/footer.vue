@@ -33,6 +33,7 @@
                     <li>
                         <small><nuxt-link to="/privacy">Privacy</nuxt-link></small>
                     </li>
+                    <li><small><nuxt-link to "/termsofuse">Terms of use</nuxt-link></small></li>
                     <li><small><nuxt-link to="/contact">Contact</nuxt-link></small></li>
                 </ul>
             </div>

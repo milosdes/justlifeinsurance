@@ -32,7 +32,10 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: "~plugins/vue-slideout.js", ssr: false }],
+  plugins: [
+    { src: "~plugins/vue-slideout.js", ssr: false },
+  /*   { src: "~/plugins/font-awesome" } */
+  ],
 
   /*
   ** Nuxt.js modules

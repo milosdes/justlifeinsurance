@@ -2,7 +2,10 @@
     <aside class="menu my-side-menu">
  
   <ul class="menu-list">
-    <li><nuxt-link to="/">Home</nuxt-link></li>
+     
+    <li><nuxt-link to="/"> <span class="icon is-large">
+  <i class="fa fa-home fa-2x"></i>
+</span>Home</nuxt-link></li>
     <br>
   </ul>
   <p class="menu-label">
@@ -31,6 +34,7 @@
   <ul class="menu-list">
     <li><nuxt-link to="/about">About this page</nuxt-link></li>
     <li><nuxt-link to="/privacy">Privacy</nuxt-link> </li>
+    <li><nuxt-link to="/termsofuse">Terms of use</nuxt-link></li>
     <li><nuxt-link to="/contact">Contact</nuxt-link> </li>
  
   </ul>

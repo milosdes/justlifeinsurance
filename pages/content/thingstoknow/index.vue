@@ -31,6 +31,13 @@
     </section>
 </template>
 
+<script>
+export default {
+    transition: "fadeOpacity"
+}
+</script>
+
+
 <style scoped>
 .fadeOpacity-enter-active,
 .fadeOpacity-leave-active {

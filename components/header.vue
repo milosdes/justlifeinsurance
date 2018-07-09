@@ -6,11 +6,15 @@
   <nav class="navbar my-navbar is-transparent">
       <div class="navbar-brand">
         <div id="menubutton">
-            <a class="toggle-button">☰</a>
+            <a class="toggle-button">
+               <span class="icon ">
+  <i class="fa fa-bars "></i>
+</span>
+            </a>
           </div>
         
         <nuxt-link class="navbar-item my-logo" to="/">
-         JustLifeInsurance.ca
+         
         </nuxt-link>
       </div>
       <div class="navbar-menu">
@@ -48,5 +52,6 @@
   font-family: "Abhaya Libre", serif;
   font-size: 1.3em;
 }
+
 </style>
 

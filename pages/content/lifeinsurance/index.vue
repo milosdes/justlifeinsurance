@@ -19,7 +19,7 @@
 <div class="contentheader">
   
 <div class="columns is-8 is-variable">
-    <div class="column ">
+    <div class="column">
         <h1 class="title is-3 headline">
         Life Insurance
       </h1>
@@ -156,12 +156,12 @@ People typically start to think about life insurance when they are about to take
 
 <div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
-        <span class="icon has-text-info">
-  <i class="fas fa-info-circle"></i>
+        <span class="icon is-large is-pulled-right">
+  <i class="fa fa-info-circle fa-2x"></i>
 </span>
-<font-awesome-icon :icon="['fas', 'adjust']"  />
-        <h2 class="subtitle">Permanent Life Insurance</h2>
-        
+
+       <h2 class="subtitle">Permanent Life Insurance</h2>
+     <br>   
 <p>
 Permanent Life Insurance (also known as Wholelife Insurance or Universal Life Insurance) is a product that often includes features that make it attractive. It has the potential to grow and money put into the policy can often be accessed in the future.
 </p>

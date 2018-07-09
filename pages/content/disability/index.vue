@@ -44,7 +44,7 @@
      
     
 
-<div id="my-listed-content">
+
 
 
 
@@ -53,7 +53,7 @@
 
 <div class="my-listed-content columns is-8 is-variable">
      
-     <div class="column is-three-quarters">     
+     <div class="column is-two-thirds-desktop">     
       
 <!--begin contentblock 1-->  
 <div class="contentblock">
@@ -139,7 +139,7 @@
         <div class="contentboxheader my-right">
              <img width="100px" src="~/assets/icons/quotation.svg" />
             <h2 class="subtitle is-3 ">Things to</h2>
-             <h1 class="title is-1 has-text-weight-light">keep in <br> mind!</h1>
+             <h1 class="title is-1">keep in <br> mind!</h1>
              
         </div>
        
@@ -161,10 +161,13 @@
 
 </div>
 
-<div class="column is-narrow is-one-quarter">
+<div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
+         <span class="icon is-large is-pulled-right">
+  <i class="fa fa-info-circle fa-2x"></i>
+</span>
         <h2 class="subtitle">Maximum Coverage</h2>
-        
+  <br>      
 <p>
 Protecting all of your income with disability insurance is not possible (generally 80% of your income is the most that can be insured). The sources of your income must be provided via tax receipts or financial statements in order to be insured.
 </p>
@@ -180,7 +183,7 @@ Insurance companies typically classify each type of occupation with a ranking fr
 </div> <!--end main columns-->
 
 
-</div>
+
 </div>
 
     </section>
@@ -206,15 +209,7 @@ export default {
 </script>
 
 <style scoped>
-.fadeOpacity-enter-active,
-.fadeOpacity-leave-active {
-  transition: opacity 0.35s ease-out;
-}
 
-.fadeOpacity-enter,
-.fadeOpacity-leave-active {
-  opacity: 0;
-}
 
 .reverse {
   flex-direction: row-reverse;

@@ -103,8 +103,8 @@ h1 {
 } */
 
 .contentblock {
-  margin-top: 2em;
-  margin-bottom: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .contentblock h1,
@@ -119,15 +119,17 @@ h2 {
 
 .contentboxheader {
   margin-bottom: 15px;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .contentboxheader .title {
   word-break: keep-all;
+  line-height: 1em;
 }
 
 .contentboxheader .subtitle {
   word-break: keep-all;
+  line-height: 0.8em;
 }
 
 /* .contentboxheader {
@@ -149,9 +151,9 @@ text-align: center;
   background: rgb(184, 255, 200);
   background: linear-gradient(
     132deg,
-    rgba(242, 255, 245, 0.452) 0%,
-    rgba(235, 255, 250, 0.493) 46%,
-    rgba(207, 241, 255, 0.479) 100%
+    rgba(242, 255, 245, 0.219) 0%,
+    rgba(235, 255, 250, 0.336) 46%,
+    rgba(207, 241, 255, 0.26) 100%
   );
 }
 
@@ -178,11 +180,18 @@ text-align: center;
 }
 
 .my-sidebox {
-  margin-top: 5em;
+  margin-top: 7em;
+  margin-left: 1em;
+  margin-right: 1em;
+ font-size: 0.9em;
+/*   background-image: url("../assets/images/background2.png");
+  background-repeat: no-repeat;
+  background-position-y: -100px; */
 }
 
 .my-sidebox p {
   margin-top: 0.6em;
+ 
 }
 
 @media screen and (max-width: 768px) {
@@ -196,6 +205,7 @@ text-align: center;
 #menubutton {
   font-size: 3em;
   color: #fff;
+  opacity: 0.6;
 }
 
 /* slideout */
@@ -253,13 +263,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-
+/* 
   background-image: url("../assets/images/background2.png");
   background-repeat: no-repeat;
-
+ */
   width: 100%;
   height: 100%;
-  opacity: 0.9;
+  opacity: 1;
   z-index: -1;
 }
 
@@ -278,4 +288,18 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;
 }
+
+
+
+
+.fadeOpacity-enter-active,
+.fadeOpacity-leave-active {
+  transition: opacity 0.35s ease-out;
+}
+
+.fadeOpacity-enter,
+.fadeOpacity-leave-active {
+  opacity: 0;
+}
+
 </style>

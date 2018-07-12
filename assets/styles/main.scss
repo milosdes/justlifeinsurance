@@ -10,6 +10,8 @@ $link-hover: $grey;
 $family-primary: $family-sans-serif;
 $body-weight: $weight-light;
 
+
+/* $navbar-height: 2rem; */
 /* $box-background-color: #D8F2E1; */
 
 .title {
@@ -19,8 +21,13 @@ $body-weight: $weight-light;
 .navbar {
   &.is-transparent {
     background-color: transparent;
+    /* background-color: #3131313b; */
     background-image: none;
   }
+}
+
+.navbar a {
+  color: white;
 }
 
 @import "~bulma";

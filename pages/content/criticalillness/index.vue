@@ -42,6 +42,27 @@
 
     
 
+ <social-sharing url="https://www.justlifeinsurance.ca/content/criticalillness"
+                      title="Critical Illness Insurance"
+                      description="Focus on recovering or spending your time on the important things if you are diagnosed with a critical illness."
+                      quote="Focus on recovering or spending your time on the important things if you are diagnosed with a critical illness."
+                      hashtags="Critical Illness Insurance,Insurance"
+                      inline-template>
+  <div class="my-social-bar">
+      <a href="#"><network network="facebook">
+        <i class="fa fa-facebook fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="linkedin">
+        <i class="fa fa-linkedin fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="whatsapp">
+        <i class="fa fa-whatsapp fa-lg"></i>
+      </network></a>
+  </div>
+</social-sharing>
 
 
 <!--begin main columns-->
@@ -195,7 +216,13 @@ The strict definitions mean that, if you satisfy the terms of the contract, the 
 </template>
 
 <script>
+import Social from "~/components/social.vue";
+
+
 export default {
+    components: {
+        Social
+    },
   transition: "fadeOpacity",
   data: function() {
     return {

@@ -6,13 +6,14 @@
 
 
 <transition name="slide-fade" mode="out-in">
-<h2 class="title" :key="quiz[sectionValue].question">{{ quiz[sectionValue].question }}</h2>
-</transition>
+  <div :key="quiz[sectionValue].question">
+<h2 class="title">{{ quiz[sectionValue].question }}</h2>
 
 
 
 
-<div v-if="quiz[sectionValue].page==='lastpage'" :key="finalpage">
+
+<div v-if="quiz[sectionValue].page==='lastpage'" :key="finalpage" class="my-assessment">
   <ul>
     <li :key="navAnswer" v-for="navAnswer in answerchain">
       <p>{{ navAnswer.question }}</p>
@@ -29,38 +30,43 @@
   </div>
 </div>
 
-<div v-else :key="quizpage">
-<transition-group name="slide-fade" mode="out-in" tag="ul">
+<div v-else class="my-assessment">
+<ul>
 <li v-bind:key="op" v-for="op in quiz[sectionValue].options"> 
-    <h2 :key="op" v-if="op.headline" class="subtitle">{{ op.headline }}</h2>
-    <label :key="op" class="answerlabel" :class="quiz[sectionValue].type">
-      <input :key="op" v-if="quiz[sectionValue].type==='radio'" :type="quiz[sectionValue].type" :value="[op]" v-model="quiz[sectionValue].answer">
-      <input :key="op" v-if="quiz[sectionValue].type==='checkbox'" :type="quiz[sectionValue].type" :value="op" v-model="quiz[sectionValue].answer">
-      <input :key="op" v-if="quiz[sectionValue].type==='text'" :type="quiz[sectionValue].type" v-model="quiz[sectionValue].answer[0].text" placeholder="edit me">
+    <h2 v-if="op.headline" class="subtitle">{{ op.headline }}</h2>
+    <label class="answerlabel" :class="quiz[sectionValue].type">
+      <input v-if="quiz[sectionValue].type==='radio'" :type="quiz[sectionValue].type" :value="[op]" v-model="quiz[sectionValue].answer">
+      <input v-if="quiz[sectionValue].type==='checkbox'" :type="quiz[sectionValue].type" :value="op" v-model="quiz[sectionValue].answer">
+      <input v-if="quiz[sectionValue].type==='text'" :type="quiz[sectionValue].type" v-model="quiz[sectionValue].answer[0].text" placeholder="edit me">
       {{op.text}}
     </label>
     
 </li>
-</transition-group>
 
+</ul>
 
 
 </div>
 
-
+<br>
 
 <div class="assessmentnav">
 <ul>
-  <li><a class="button" v-on:click="back()" v-if="hasBack" href="#">BACK</a></li>
-  <li><a class="button" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">NEXT</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">BACK</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">NEXT</a></li>
 </ul>
 </div> 
-
+</div>
+</transition>
 
 
 <br>
 
-
+{{ compoundEval }}
+<br>
+<p v-bind:key="aaa" v-for="aaa in quiz[sectionValue].answer">
+  {{ aaa.eval }}
+</p>
 
 </div>
 </section>
@@ -76,7 +82,8 @@ export default {
   data: function() {
     return {
       navigation: [{ section: "Q1", answer: "" }],
-      answerchain: [{ question: "", answer: "" }],
+      answerchain: [],
+      
 
       quiz: {
         Q1: {
@@ -84,7 +91,7 @@ export default {
             "Which of the following best describes your current marital status? ",
           type: "radio",
           options: [
-            { text: "Single", target: "Q2" },
+            { text: "Single", target: "Q2", eval: {insurancecategory: "lifeinsurance", value: (+1) } },
             {
               text: "In a committed relationship",
               target: "Q2"
@@ -157,12 +164,14 @@ export default {
             {
               text:
                 "In case something happens to me and my current way of life is affected.",
-              target: "Q5"
+              target: "Q5",
+              eval: {insurancecategory: "lifeinsurance", value: (-2)}
             },
             {
               text:
                 "I'm worried about something happening to someone close to me.",
-              target: "Q5"
+              target: "Q5",
+              eval: {insurancecategory: "lifeinsurance", value: (+10)}
             }
           ],
           answer: []
@@ -295,11 +304,21 @@ export default {
     select: function(target, answer, question) {
       this.navigation.push({ section: target, answer: answer });
       this.answerchain.push({ question: question, answer: answer });
-      console.log(this.navigation.section);
-      // console.log(options)
+     
+      // answer.forEach(a => {
+      //   if (a.eval!==undefined) {
+      //     this.compoundeval[a.eval.insurancecategory] += a.eval.value;
+      //   }
+      //   else {
+      //     console.log("no eval")
+      //   }
+      // });
+      
+ 
     },
     back: function() {
       this.navigation.pop();
+      this.answerchain.pop();
     },
     outputFile: function() {
       this.quiz.push(options);
@@ -316,6 +335,20 @@ export default {
     sectionValue: function() {
       //{section:"lifeins", value:"yes"}
       return this.lastNavigation.section;
+    },
+    compoundEval: function() {
+      let result = {lifeinsurance: 0, criticalillness: 0, disability: 0, longtermcare: 0};
+      this.answerchain.forEach(sectionresponse => {
+        sectionresponse.answer.forEach(answer => {
+          if (answer.eval!==undefined) {
+            result[answer.eval.insurancecategory] += answer.eval.value;
+          }
+          else {
+            console.log("no eval")
+          }
+        });
+      });
+      return result;
     }
   }
 };
@@ -323,6 +356,9 @@ export default {
 
 
 <style scoped>
+
+
+
 .assessmentnav ul li {
   display: inline;
   margin: 5px;

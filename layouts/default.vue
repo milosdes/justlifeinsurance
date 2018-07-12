@@ -203,9 +203,20 @@ text-align: center;
 /* menu */
 
 #menubutton {
-  font-size: 3em;
+  font-size: 2.6em;
   color: #fff;
+  opacity: 0.5;
+  margin-top: 5px;
+}
+
+
+.my-social-bar {
+  margin-top: 1em;
+}
+
+.my-social-bar span {
   opacity: 0.6;
+  margin-right: 0.5em;
 }
 
 /* slideout */
@@ -263,10 +274,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-/* 
+
   background-image: url("../assets/images/background2.png");
   background-repeat: no-repeat;
- */
+
   width: 100%;
   height: 100%;
   opacity: 1;

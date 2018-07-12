@@ -43,7 +43,27 @@
 
 
 
-
+ <social-sharing url="https://www.justlifeinsurance.ca/content/longtermcare"
+                      title="Long Term Care Insurance"
+                      description="Makes it easier to ask for help if you can no longer live independently."
+                      quote="Makes it easier to ask for help if you can no longer live independently."
+                      hashtags="Long Term Care Insurance, Long Term Care, Insurance"
+                      inline-template>
+  <div class="my-social-bar">
+      <a href="#"><network network="facebook">
+        <i class="fa fa-facebook fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="linkedin">
+        <i class="fa fa-linkedin fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="whatsapp">
+        <i class="fa fa-whatsapp fa-lg"></i>
+      </network></a>
+  </div>
+</social-sharing>
 
 
 <!--begin main columns-->
@@ -154,7 +174,13 @@ Other than the amount of time required, informal caregivers likely lack the trai
 </template>
 
 <script>
+import Social from "~/components/social.vue";
+
+
 export default {
+    components: {
+        Social
+    },
   transition: "fadeOpacity",
   data: function() {
     return {

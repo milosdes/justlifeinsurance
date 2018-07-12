@@ -7,14 +7,15 @@
       <div class="navbar-brand">
         <div id="menubutton">
             <a class="toggle-button">
-               <span class="icon ">
+               <span class="icon is-large">
   <i class="fa fa-bars "></i>
 </span>
             </a>
           </div>
         
         <nuxt-link class="navbar-item my-logo" to="/">
-         
+        
+          <img src="../assets/images/logo.png" alt="justlifeinsurance.ca" width="250"  >
         </nuxt-link>
       </div>
       <div class="navbar-menu">
@@ -48,9 +49,9 @@
   padding-right: 1em;
 }
 
-.my-logo {
-  font-family: "Abhaya Libre", serif;
-  font-size: 1.3em;
+.my-logo img {
+  max-height: 5rem;
+  margin-left: 1.5em;
 }
 
 </style>

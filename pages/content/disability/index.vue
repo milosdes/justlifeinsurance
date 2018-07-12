@@ -44,6 +44,27 @@
      
     
 
+ <social-sharing url="https://www.justlifeinsurance.ca/content/longtermcare"
+                      title="Long Term Care Insurance"
+                      description="Supplements or replaces your income if your ability to work is impacted."
+                      quote="Supplements or replaces your income if your ability to work is impacted."
+                      hashtags="Disability Insurance, Insurance"
+                      inline-template>
+  <div class="my-social-bar">
+      <a href="#"><network network="facebook">
+        <i class="fa fa-facebook fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="linkedin">
+        <i class="fa fa-linkedin fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="whatsapp">
+        <i class="fa fa-whatsapp fa-lg"></i>
+      </network></a>
+  </div>
+</social-sharing>
 
 
 
@@ -51,7 +72,7 @@
 
 <!--begin main columns-->
 
-<div class="my-listed-content columns is-8 is-variable">
+<div class="my-listed-content columns is-8 is-variable is-desktop">
      
      <div class="column is-two-thirds-desktop">     
       
@@ -193,7 +214,13 @@ Insurance companies typically classify each type of occupation with a ranking fr
 </template>
 
 <script>
+import Social from "~/components/social.vue";
+
+
 export default {
+    components: {
+        Social
+    },
   transition: "fadeOpacity",
   data: function() {
     return {

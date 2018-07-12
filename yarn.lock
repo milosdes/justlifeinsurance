@@ -78,6 +78,46 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@fortawesome/fontawesome-common-types@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.7.tgz#4336c4b06d0b5608ff1215464b66fcf9f4795284"
+
+"@fortawesome/fontawesome-common-types@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0.tgz#6bcf6481030f59e7ffd1a40a67cd464d47780f6a"
+
+"@fortawesome/fontawesome-free-brands@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.13.tgz#4d15ff4e1e862d5e4a4df3654f8e8acbd47e9c09"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.7"
+
+"@fortawesome/fontawesome-free@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.1.0.tgz#f35f5ba91366b7a58b0b6a4f22ff0907fe002219"
+
+"@fortawesome/fontawesome-svg-core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0.tgz#b0ec14af25cdc11d38ede7d8c94b89b478ab67ab"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
+
+"@fortawesome/fontawesome@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.1.8.tgz#75fe66a60f95508160bb16bd781ad7d89b280f5b"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.7"
+
+"@fortawesome/free-regular-svg-icons@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.1.0.tgz#9d41c1d8167d5d4af9165bd667bbf3130a7c7d10"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
+
+"@fortawesome/vue-fontawesome@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0.tgz#ff45bb6efe2f585f5faebf174a10b1887c06547b"
+
 "@nuxtjs/axios@^5.0.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.3.1.tgz#9f9e6c817dae44c16955af659f6d5ac2a8085148"
@@ -1003,10 +1043,6 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bezier-easing@^2.0.3:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
-
 bfj-node4@^5.2.0:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/bfj-node4/-/bfj-node4-5.3.1.tgz#e23d8b27057f1d0214fc561142ad9db998f26830"
@@ -1196,10 +1232,6 @@ builtin-modules@^1.0.0:
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
-
-bulma@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.2.3.tgz#086394c65e74aa8081e658bdcf6742f81107936e"
 
 bulma@^0.6.2:
   version "0.6.2"
@@ -2675,10 +2707,6 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^2.2.4:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.6.3.tgz#457357532deb135f3da64b425bf4435737961564"
-
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -3704,10 +3732,6 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jump.js@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/jump.js/-/jump.js-1.0.2.tgz#e0641b47f40a38f2139c25fda0500bf28e43015a"
-
 katex@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/katex/-/katex-0.6.0.tgz#12418e09121c05c92041b6b3b9fb6bab213cb6f3"
@@ -3933,7 +3957,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -4387,7 +4411,7 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-node-sass@^4.7.2, node-sass@^4.9.0:
+node-sass@^4.7.2:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.0.tgz#d1b8aa855d98ed684d6848db929a20771cc2ae52"
   dependencies:
@@ -4407,6 +4431,30 @@ node-sass@^4.7.2, node-sass@^4.9.0:
     node-gyp "^3.3.1"
     npmlog "^4.0.0"
     request "~2.79.0"
+    sass-graph "^2.2.4"
+    stdout-stream "^1.4.0"
+    "true-case-path" "^1.0.2"
+
+node-sass@^4.9.1:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.2.tgz#5e63fe6bd0f2ae3ac9d6c14ede8620e2b8bdb437"
+  dependencies:
+    async-foreach "^0.1.3"
+    chalk "^1.1.1"
+    cross-spawn "^3.0.0"
+    gaze "^1.0.0"
+    get-stdin "^4.0.1"
+    glob "^7.0.3"
+    in-publish "^2.0.0"
+    lodash.assign "^4.2.0"
+    lodash.clonedeep "^4.3.2"
+    lodash.mergewith "^4.6.0"
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    nan "^2.10.0"
+    node-gyp "^3.3.1"
+    npmlog "^4.0.0"
+    request "2.87.0"
     sass-graph "^2.2.4"
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
@@ -4929,10 +4977,6 @@ pleeease-filters@^4.0.0:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
-
-popper.js@^0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-0.6.4.tgz#1837c4760af54d2bb20b66f9c09b92993d84c629"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -5862,7 +5906,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2:
+request@2, request@2.87.0:
   version "2.87.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.87.0.tgz#32f00235cd08d482b4d0d68db93a829c0ed5756e"
   dependencies:
@@ -7003,22 +7047,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-affix@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/vue-affix/-/vue-affix-0.2.4.tgz#4f599f10517cab95a2d628029f91edb83316afe7"
-
-vue-blu@^0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/vue-blu/-/vue-blu-0.1.9.tgz#054c04686dd2688979741550aa5e560a683ff90c"
-  dependencies:
-    bulma "^0.2.3"
-    flatpickr "^2.2.4"
-    font-awesome "^4.7.0"
-    jump.js "^1.0.1"
-    lodash "^4.17.2"
-    popper.js "^0.6.4"
-    vue "^2.1.10"
-
 vue-bulma-expanding@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/vue-bulma-expanding/-/vue-bulma-expanding-0.0.1.tgz#fcf71c2e8ef09157175bd5187eb71b3ce75a2229"
@@ -7092,12 +7120,6 @@ vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
 
-vue-scrollto@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/vue-scrollto/-/vue-scrollto-2.11.0.tgz#0657f127faded60a71fbcc841f393279a49aed55"
-  dependencies:
-    bezier-easing "^2.0.3"
-
 vue-server-renderer@^2.5.13:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.5.16.tgz#279ef8e37e502a0de3a9ae30758cc04a472eaac0"
@@ -7116,12 +7138,6 @@ vue-slideout@^1.7.0:
   resolved "https://registry.yarnpkg.com/vue-slideout/-/vue-slideout-1.7.0.tgz#a4054bc0ab324994b140ee7d77fc086dad098c6b"
   dependencies:
     slideout "^1.0.1"
-
-vue-stepper@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/vue-stepper/-/vue-stepper-1.0.11.tgz#0302a20dcff984beb430e63cdec104857522310b"
-  dependencies:
-    vue "^2.2.1"
 
 vue-style-loader@^3.0.0:
   version "3.1.2"
@@ -7148,7 +7164,7 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.1.10, vue@^2.2.1, vue@^2.5.13:
+vue@^2.5.13:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 

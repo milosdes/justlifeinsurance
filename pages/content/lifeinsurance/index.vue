@@ -23,7 +23,6 @@
         <h1 class="title is-3 headline">
         Life Insurance
       </h1>
-      
        
      
     </div>
@@ -35,11 +34,36 @@
 </ul>
     </div>
 </div>  
- <hr>
+<hr> 
 
 </div><!--end contentheader-->
 
- <social/>
+
+
+ <social-sharing url="https://www.justlifeinsurance.ca/content/lifeinsurance"
+                      title="Life Insurance"
+                      description="Make sure finances won't be a concern for your loved ones in the event of your death."
+                      quote="Make sure finances won't be a concern for your loved ones in the event of your death."
+                      hashtags="life insurance,insurance"
+                      inline-template>
+  <div class="my-social-bar">
+      <a href="#"><network network="facebook">
+        <i class="fa fa-facebook fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="linkedin">
+        <i class="fa fa-linkedin fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="whatsapp">
+        <i class="fa fa-whatsapp fa-lg"></i>
+      </network></a>
+  </div>
+</social-sharing>
+
+
+
 <!--begin main columns-->
 
 <div class="columns is-8 is-variable is-desktop">

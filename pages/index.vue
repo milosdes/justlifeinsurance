@@ -1,32 +1,68 @@
 <template>
   <div>
  
-<section class="hero is-medium">
+
+<section class="hero ">
+  
+
   <div class="hero-body my-hero">
+   
     <div class="container">
+      
+
       <div class="columns">
         <div class="column">
-          <h1 class="title has-text-weight-bold is-1">
+          <br>
+          <h1 class="title has-text-weight-bold is-1 has-text-white deepshadow">
             $#!% Happens In Life
           </h1>
-             <h2 class="subtitle is-4">
+             <h2 class="subtitle is-4 has-text-white">
             Helping you make informed decisions about life insurance.
           </h2>
+          
+          <div> Click here to...</div>
+          <nuxt-link to="/assessment" class="button is-medium is-primary is-inverted"><span class="icon"><i class="fa fa-bar-chart is-lg" aria-hidden="true"></i></span><span>take an assessment</span></nuxt-link>
         </div>
         <div class="column is-narrow">
-          <nuxt-link to="/assessment" class="button is-medium is-primary is-outlined is-pulled-right">Click here for an assessment</nuxt-link>
+          
+        
+        <div id="my-hero-social">
+       <social-sharing url="https://www.justlifeinsurance.ca/"
+                      title="Just Life Insurance"
+                      description="Helping you make informed decisions about life insurance."
+                      quote="Helping you make informed decisions about life insurance."
+                      hashtags="Life Insurance,Insurance"
+                      inline-template>
+  <div class="my-social-bar ">
+      <a href="#"><network network="facebook">
+        <i class="fa fa-facebook fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="linkedin">
+        <i class="fa fa-linkedin fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="twitter">
+        <i class="fa fa-twitter fa-lg"></i>
+      </network></a>
+      <a href="#"><network network="whatsapp">
+        <i class="fa fa-whatsapp fa-lg"></i>
+      </network></a>
+  </div>
+</social-sharing>
+</div>
         </div>
        
          
       </div>
+      
     </div>
   </div>
 </section>
 
 
 
-  <section class="section">
+  <section class="my-section">
     <div class="container textpage">
+      
 
     <div class="columns is-variable is-6">
       <div class="column">
@@ -91,22 +127,38 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-.my-hero {
+.deepshadow {
+    color: #e0dfdc;
+    letter-spacing: -0.03em;
+    text-shadow:
+     
+      3px 3px 0px rgba(0, 110, 74, 0.4);
+  }
+
+#my-hero-social {
+  text-align: right;
   position: relative;
+  top: 0;
 }
+
+/* .my-hero {
+  position: relative;
+} */
+
 
 .my-hero {
   content: "";
   display: block;
-/*   background: #09ff00;
+  background: #09ff00;
   background: linear-gradient(
-    172deg,
+    180deg,
     #f2fff500 0%,
-    rgba(188, 255, 197, 0.445) 46%,
-    rgba(75, 210, 156, 0.479) 100%
-  ); */
+    rgba(20, 172, 114, 0.425) 30%,
+    rgba(20, 172, 114, 0.452) 50%,
+    rgba(20, 177, 138, 0) 100%
+  );
   
 }
 
@@ -125,6 +177,11 @@ export default {
 }
 
 
+
+.my-section {
+ /*  background-color: white; */
+  padding: 2em;
+}
 
 .catbox {
   height: 100%;

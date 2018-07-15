@@ -24,7 +24,8 @@
 <div class="field">
   <label class="label">Email</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Your email" value="">
+    <input class="input" type="email" placeholder="Your email" value=""
+               >
     <span class="icon is-small is-left">
       <i class="fa fa-envelope"></i>
     </span>
@@ -61,6 +62,30 @@
 
 </div>
 
+<!-- END OF J's CODE -->
+
+
+<!-- insert 
+
+ <form @submit.prevent='submit' class='vuelidation__form' novalidate>
+        <div class='vuelidation__form__field'>
+          <label>Email</label>
+          <input v-model.trim='email' type='text' />
+          <div
+            v-if='$vuelidation.error("email")'
+            class='vuelidation__form__field__error'
+          >{{ $vuelidation.error('email') }}</div>
+        </div>
+
+
+        <button type='submit' :disabled='$vuelidation.errors()'>Login</button>
+      </form>
+
+ / insert -->
+
+
+
+
 
  
         </div>
@@ -69,6 +94,32 @@
   
     </section>
 </template>
+
+
+
+<script>
+export default {
+  data: function() {
+    return {
+      form: {
+        email: ''
+      }
+    }
+  },
+  vuelidation: {
+    data: {
+      form: { 
+        email: {
+          required: true,
+          email: true
+        }
+      }
+    }
+  }
+}
+</script>
+
+
 
 <style scoped>
 .my-textblock {
@@ -89,3 +140,5 @@
     margin-top: 2em;
 }
 </style>
+
+

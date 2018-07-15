@@ -9,24 +9,7 @@
    
     <div class="container">
       
-
-      <div class="columns">
-        <div class="column">
-          <br>
-          <h1 class="title has-text-weight-bold is-1 has-text-white deepshadow">
-            $#!% Happens In Life
-          </h1>
-             <h2 class="subtitle is-4 has-text-white">
-            Helping you make informed decisions about life insurance.
-          </h2>
-          
-          <div> Click here to...</div>
-          <nuxt-link to="/assessment" class="button is-medium is-primary is-inverted"><span class="icon"><i class="fa fa-bar-chart is-lg" aria-hidden="true"></i></span><span>take an assessment</span></nuxt-link>
-        </div>
-        <div class="column is-narrow">
-          
-        
-        <div id="my-hero-social">
+ <div id="my-hero-social">
        <social-sharing url="https://www.justlifeinsurance.ca/"
                       title="Just Life Insurance"
                       description="Helping you make informed decisions about life insurance."
@@ -49,22 +32,61 @@
   </div>
 </social-sharing>
 </div>
+
+      <div class="columns">
+
+        <div class="column">
+          <br>
+          <h1 class="title has-text-weight-bold is-1 has-text-white deepshadow">
+            Sometimes $#!+ happens
+          </h1>
+             <h2 class="subtitle is-4 has-text-white">
+            Find out what can help and make informed decisions about life insurance.
+          </h2>
+        </div>
+
+        <div class="column is-narrow is-one-third">
+          <div id="assessmentbox" class="handwritten has-text-primary is-pulled-right">
+            Not sure where to start?
+            <br>
+            We’ll help find the most relevant topics for you.
+            <br>
+            Click here to...
+              <br> <br>
+              <div id="assessmentbuttoncontainer">
+                  <nuxt-link to="/assessment" class="button is-medium is-primary is-large assessmentbutton"><span class="icon"><i class="fa fa-bar-chart is-lg" aria-hidden="true"></i></span><span>take an assessment</span></nuxt-link>
+              </div>     
+          </div> 
         </div>
        
-         
       </div>
       
+      
     </div>
+    
   </div>
 </section>
 
 
 
-  <section class="my-section">
+<section class="my-section">
     <div class="container textpage">
-      
+
+   <div class="columns is-variable is-desktop">
+     <div class="column is-one-quarter-desktop">
+        <div id="didyouknow" class="handwritten">
+         <h2 class="subtitle">Did you know life insurance actually refers to 4 distinct types of protection?</h2> 
+        </div> 
+     </div>
+     <div class="column">
+
+       
+
+     
+
 
     <div class="columns is-variable is-6">
+
       <div class="column">
           <nuxt-link to="/content/lifeinsurance">
           <div class="catbox fold">
@@ -76,6 +98,7 @@
           </div>
         </nuxt-link>
       </div>
+
       <div class="column">
         <nuxt-link to="/content/criticalillness">
         <div class="catbox fold">  
@@ -86,7 +109,9 @@
         </div>
         </nuxt-link>
       </div>
+
     </div>
+    
     <div class="columns is-variable is-6">
       <div class="column">
         <nuxt-link to="/content/disability">
@@ -110,20 +135,18 @@
       </div>
     </div>
   </div>
+     </div>
+   </div>
 
-  </section>
+</section>
 
   </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
 
 export default {
-  transition: "fadeOpacity",
-  components: {
-    Logo
-  }
+  transition: "fadeOpacity"
 };
 </script>
 
@@ -147,16 +170,68 @@ export default {
   position: relative;
 } */
 
+#assessmentbox {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  font-size: 1.2em;
+  border-radius: 9999px;
+  padding: 2em;
+  padding-top: 3em;
+
+  margin-top: 1em;
+  margin-left: 2em;
+      -ms-transform: rotate(5deg); /* IE 9 */
+    -webkit-transform: rotate(5deg); /* Safari */
+    transform: rotate(5deg); /* Standard syntax */
+}
+
+#assessmentbuttoncontainer {
+  margin-left: -6em;
+       -ms-transform: rotate(-3deg); /* IE 9 */
+    -webkit-transform: rotate(-3deg); /* Safari */
+    transform: rotate(-3deg); /* Standard syntax */
+}
+
+.assessmentbutton {
+  box-shadow: 5px 5px 15px grey;
+}
+
+#didyouknow h2 {
+   color:  black;
+}
+
+#didyouknow {
+  box-shadow: 5px 5px 15px grey;
+  background: 
+  linear-gradient(
+    180deg,
+    rgb(194, 255, 153) 0%,
+    rgb(78, 212, 156) 100%
+  );
+  border-radius: 9px;
+  max-width: 300px;
+  margin-top: -4em;
+  margin-left: -2em;
+  margin-right: -2em;
+  margin-bottom: -1.7em;
+  position: relative;
+  z-index: 1;
+  padding: 1.5em;
+  -ms-transform: rotate(-3deg); /* IE 9 */
+  -webkit-transform: rotate(-3deg); /* Safari */
+  transform: rotate(-3deg); /* Standard syntax */
+}
 
 .my-hero {
   content: "";
   display: block;
-  background: #09ff00;
+  background: #00ff6a8e;
   background: linear-gradient(
     180deg,
     #f2fff500 0%,
-    rgba(20, 172, 114, 0.425) 30%,
-    rgba(20, 172, 114, 0.452) 50%,
+    rgba(20, 172, 110, 0.4) 30%,
+    rgba(20, 172, 110, 0.4) 50%,
     rgba(20, 177, 138, 0) 100%
   );
   
@@ -187,7 +262,7 @@ export default {
   height: 100%;
   padding: 20px;
   background-color: #ffffffe0;
-  
+  box-shadow: 5px 5px 15px grey;
 }
 
 .columns {

@@ -34,7 +34,8 @@ module.exports = {
   */
   plugins: [
     { src: "~plugins/vue-slideout.js", ssr: false },
-    { src: '~plugins/social.js', ssr: true }
+    { src: '~plugins/social.js', ssr: true },
+    {src: '~/plugins/Vuelidate'}
   /*   { src: "~/plugins/font-awesome" } */
   ],
 

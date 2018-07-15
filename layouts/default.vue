@@ -57,13 +57,15 @@ export default {
 
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:300|Hind+Guntur|Lato:300,400,400i,700|Muli:400|Palanquin|Source+Sans+Pro:400|Tajawal");
-@import url("https://fonts.googleapis.com/css?family=Nunito:300|Roboto:300");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Source+Sans+Pro:400");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
 @import url("https://fonts.googleapis.com/css?family=Tajawal:300,400");
 @import url("https://fonts.googleapis.com/css?family=Abhaya+Libre");
 
 @import url("https://fonts.googleapis.com/css?family=Lora");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
 body {
   /* font-family: 'Open Sans', sans-serif; 
@@ -82,6 +84,12 @@ h1 {
   font-family: 'Lora', serif;
   font-family: 'Abhaya Libre', serif; 
   */
+}
+
+.handwritten {
+  /* font-family: 'Caveat Brush', cursive; */
+font-family: 'Indie Flower', cursive;
+line-height: 1em;
 }
 
 /* .contentheader {

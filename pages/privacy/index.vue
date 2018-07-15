@@ -46,6 +46,13 @@
     </section>
 </template>
 
+<script>
+export default {
+    transition: "fadeOpacity"
+}
+</script>
+
+
 <style scoped>
 .my-textblock {
   max-width: 800px;

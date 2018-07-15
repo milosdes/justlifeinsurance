@@ -14,6 +14,15 @@
 
 
 <div v-if="quiz[sectionValue].page==='lastpage'" :key="finalpage" class="my-assessment">
+  
+<h2 class="subtitle">These are topics which, based on your answers, are relevant to you. (sorted by relevance)</h2>
+  
+  <ol>
+    <li :key="cat" v-for="cat in evalArraySorted"><a :href="cat.link" target="_blank">{{ cat.name }}</a></li>
+  </ol>
+  
+  
+  
   <ul>
     <li :key="navAnswer" v-for="navAnswer in answerchain">
       <p>{{ navAnswer.question }}</p>
@@ -22,10 +31,12 @@
     </li>
   </ul>
 <br>
+
+<br>
   <div class="assessmentnav">
   <ul>
-  <li><a class="button" v-on:click="back()" v-if="hasBack" href="#">BACK</a></li>
-  <li><a class="button" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">SUBMIT</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">Back</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">Submit</a></li>
   </ul>
   </div>
 </div>
@@ -46,27 +57,24 @@
 </ul>
 
 
-</div>
+
 
 <br>
 
 <div class="assessmentnav">
 <ul>
-  <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">BACK</a></li>
-  <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">NEXT</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">Back</a></li>
+  <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">Next</a></li>
 </ul>
+<br>
+<a v-if="quiz[sectionValue].skiptarget !== undefined" class="" v-on:click="skip(quiz[sectionValue].skiptarget, quiz[sectionValue].question)" href="#">Skip this question</a>
 </div> 
+</div>
 </div>
 </transition>
 
 
-<br>
 
-{{ compoundEval }}
-<br>
-<p v-bind:key="aaa" v-for="aaa in quiz[sectionValue].answer">
-  {{ aaa.eval }}
-</p>
 
 </div>
 </section>
@@ -86,216 +94,248 @@ export default {
       
 
       quiz: {
-        Q1: {
+       
+       Q1: {
           question:
-            "Which of the following best describes your current marital status? ",
-          type: "radio",
+            "Which type(s) of insurance would you confidently say you have a good understanding of?",
+          type: "checkbox",
+          skiptarget: "Q2",
           options: [
-            { text: "Single", target: "Q2", eval: {insurancecategory: "lifeinsurance", value: (+1) } },
-            {
-              text: "In a committed relationship",
-              target: "Q2"
-            },
-            { text: "Divorced", target: "Q2" },
-            { text: "Widowed", target: "Q2" },
-            { text: "Other", target: "Q2" }
+            { text: "​Critical Illness Insurance", target: "Q2", eval: [{insurancecategory: "criticalillness", value: (-1)}] },
+            { text: "​Disability Insurance",target: "Q2", eval: [{insurancecategory: "disability", value: (-1)}]},   
+            { text: "​Life Insurance", target: "Q2", eval: [{insurancecategory: "lifeinsurance", value: (-1)}] },
+            { text: "​Long Term Care Insurance", target: "Q2", eval: [{insurancecategory: "longtermcare", value: (-1)}] },
+            { text: "None of the above", target: "Q2" }
           ],
           answer: []
         },
         Q2: {
-          question: "Do you have anyone who is dependent on you?",
+          question:
+            "Do you have any insurance policies that are currently in force? (Either through a group plan or an independent contract)",
           type: "radio",
+          skiptarget: "Q3",
           options: [
-            { text: "Yes", target: "Q3a" },
-            { text: "No", target: "Q3b" }
+            { text: "​Yes", target: "Q2a" },
+            { text: "​No", target: "Q3" },
+            { text: "​I don’t know", target: "Q3" }
           ],
           answer: []
         },
-        Q3a: {
-          question: "Who is dependent on you?",
+        Q2a: {
+          question:
+            "What type(s) of insurance do you have in force? (check all that apply)",
           type: "checkbox",
           options: [
-            { text: "A partner", target: "Q4a" },
-            { text: "One or more children", target: "Q4a" },
-            { text: "Parent(s) or grandparent(s)", target: "Q4a" },
-            { text: "Other", target: "Q4a" }
+            { text: "​​Critical Illness Insurance", target: "Q2b" },
+            { text: "​​Disability Insurance", target: "Q2b" },
+            { text: "​​Life Insurance", target: "Q2b" },
+            { text: "​​​Long Term Care Insurance", target: "Q2b" }
           ],
           answer: []
         },
-        Q3b: {
-          question: "Do you think this could change in the near future?",
+        Q2b: {
+          question:
+            "Do you understand what is covered under your current policy?",
           type: "radio",
           options: [
-            {
-              text:
-                "Yes, there is a possibility that I will have someone dependent on me.",
-              target: "Q4b"
-            },
-            { text: "No, I don't expect this to change.", target: "Q4b" }
+            { text: "​​Yes", target: "Q3" },
+            { text: "​​No", target: "Q3" },
+          ],
+          answer: []
+        },
+        Q3: {
+          question:
+            "Which of the following best describes your current marital / relationship status? ",
+          type: "radio",
+          skiptarget: "Q4",
+          options: [
+            { text: "Single", target: "Q4" },
+            {text: "In a committed relationship",target: "Q4"},
+            { text: "Divorced", target: "Q4" },
+            { text: "Widowed", target: "Q4" },
+            { text: "Other", target: "Q4" }
+          ],
+          answer: []
+        },
+        Q4: {
+          question: "Is anyone dependent on you at this time?",
+          type: "radio",
+          skiptarget: "Q5",
+          options: [
+            { text: "Yes", target: "Q4a", eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "No", target: "Q5", eval: [{insurancecategory: "lifeinsurance", value: (-1)}] }
           ],
           answer: []
         },
         Q4a: {
-          question: "Why are you interested in learning about life insurance?",
+          question: "Who is dependent on you?",
           type: "checkbox",
           options: [
-            {
-              text:
-                "I want to make sure my dependents are taken care of if something happens to me.",
-              target: "Q5"
-            },
-            {
-              text:
-                "In case something happens to me and my current way of life is affected.",
-              target: "Q5"
-            },
-            {
-              text:
-                "I'm worried about something happening to someone close to me.",
-              target: "Q5"
-            }
-          ],
-          answer: []
-        },
-        Q4b: {
-          question: "Why are you interested in learning about life insurance?",
-          type: "checkbox",
-          options: [
-            {
-              text:
-                "In case something happens to me and my current way of life is affected.",
-              target: "Q5",
-              eval: {insurancecategory: "lifeinsurance", value: (-2)}
-            },
-            {
-              text:
-                "I'm worried about something happening to someone close to me.",
-              target: "Q5",
-              eval: {insurancecategory: "lifeinsurance", value: (+10)}
-            }
+            { text: "A partner", target: "Q5" },
+            { text: "One or more children", target: "Q5" },
+            { text: "Parent(s) or grandparent(s)", target: "Q5" },
+            { text: "Other", target: "Q5" }
           ],
           answer: []
         },
         Q5: {
-          question: "Where would you say you are financially at this time?",
-          type: "radio",
+          question: "Which statement best describes your current financial situation at this time? (check all that apply)",
+          type: "checkbox",
+          skiptarget: "Q6",
           options: [
-            { text: "I currently have some debt/liability", target: "Q6a" },
-            {
-              text:
-                "I expect to take on some debt/liability in the near future",
-              target: "Q7"
-            },
-            { text: "I have some money set aside", target: "Q6b" }
+            { text: "​I have more debt / liability than assets", target: "Q6", eval: [{insurancecategory: "lifeinsurance", value: (+1)}]},
+            { text:"​I have more assets than debt / liability", target: "Q6", eval: [{insurancecategory: "criticalillness", value: (+1)}]},
+            { text:"​My assets and liabilities are close to being equal", target: "Q6", eval: [{insurancecategory: "disability", value: (+1)}]}
           ],
           answer: []
         },
-        Q6a: {
-          question:
-            "Do you think your debt/liability will be increasing or decreasing?",
-          type: "radio",
+        Q6: {
+          question: "In the near future, do you expect your liability to:",
+          type: "checkbox",
+          skiptarget: "Q7",
           options: [
-            { text: "I think it will be increasing", target: "Q7" },
-            { text: "I think it will be decreasing", target: "Q7" }
-          ],
-          answer: []
-        },
-        Q6b: {
-          question: "What form are your savings in?",
-          type: "radio",
-          options: [
-            { text: "RRSP", target: "Q7" },
-            { text: "TFSA", target: "Q7" },
-            { text: "Non-registered savings", target: "Q7" },
-            { text: "Other", target: "Q7" },
-            { text: "I don't know", target: "Q7" }
+            { text: "​Decrease", target: "Q7"},
+            { text:"​Increase", target: "Q7"},
+            { text:"​​Stay the same", target: "Q7"}
           ],
           answer: []
         },
         Q7: {
-          question: "Do you have any insurance policies currently in force?",
-          type: "radio",
-          options: [
-            { text: "Yes", target: "Q7a" },
-            { text: "No", target: "Q8" },
-            { text: "I'm not sure", target: "Q8" }
-          ],
-          answer: []
-        },
-        Q7a: {
-          question: "Which insurance policies do you have in force?",
+          question: "​What type of savings / investment vehicle have you used in the past?",
           type: "checkbox",
+          skiptarget: "Q8",
           options: [
-            {
-              text: "Life",
-              target: "Q7aa",
-              additionalText: "(Independent contract)",
-              headline: "Independent contract with an insurer:"
-            },
-            {
-              text: "Critical Illness",
-              target: "Q7aa",
-              additionalText: "(Independent contract)"
-            },
-            {
-              text: "Disability",
-              target: "Q7aa",
-              additionalText: "(Independent contract)"
-            },
-            {
-              text: "Long Term Care",
-              target: "Q7aa",
-              additionalText: "(Independent contract)"
-            },
-            {
-              text: "Life",
-              target: "Q7aa",
-              additionalText: "(Group or work coverage)",
-              headline: "Group or coverage through work:"
-            },
-            {
-              text: "Critical Illness",
-              target: "Q7aa",
-              additionalText: "(Group or work coverage)"
-            },
-            {
-              text: "Disability",
-              target: "Q7aa",
-              additionalText: "(Group or work coverage)"
-            },
-            {
-              text: "Long Term Care",
-              target: "Q7aa",
-              additionalText: "(Group or work coverage)"
-            }
-          ],
-          answer: []
-        },
-        Q7aa: {
-          question:
-            "Do you feel like you have a good understanding of what you are covered for?",
-          type: "radio",
-          options: [
-            { text: "Yes", target: "Q8" },
-            { text: "No", target: "Q8" }
+            { text: "​Chequing / savings accounts at your bank", target: "Q6"},
+            { text:"Non-registered investments", target: "Q8"},
+            { text:"RRSP", target: "Q8"},
+            { text:"TFSA", target: "Q8"},
+            { text:"​​Other", target: "Q8"},
+            { text:"​​I don’t know", target: "Q8"}
           ],
           answer: []
         },
         Q8: {
-          question: "Your contact information",
-          type: "text",
+          question:
+            "On average, at the end of each month, my net worth:",
+          type: "radio",
+          skiptarget: "Q9",
           options: [
-            {
-              text: "",
-              target: "Q6",
-              headline: "Please fill in your contact information"
-            }
+            { text: "Decreases (the ending balance in my bank account is less than it was at the beginning of the month)",
+              target: "Q9" },
+            { text: "Increases (the ending balance in my bank account is greater than it was at the beginning of the month)", 
+              target: "Q9",
+              eval: [{insurancecategory: "termandpermanent", value: (+1)}] },
+            { text: "Stays about the same",
+              target: "Q9"},
+            { text: "I don't know",
+              target: "Q9"}
           ],
-          answer: [{ text: "", target: "Q9" }]
+          answer: []
         },
         Q9: {
+          question: "Occupationally - within the next 5 years do you expect to: (Check all that apply)",
+          type: "checkbox",
+          skiptarget: "Q10",
+          options: [
+            { text: "Change employment / careers", target: "Q10",
+              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
+            { text: "Enter the workforce", target: "Q10" },
+            { text: "Retire", target: "Q10",
+              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
+            { text: "Start a business", target: "Q10" },
+            { text: "Other", target: "Q10" }
+          ],
+          answer: []
+        },
+        Q10: {
+          question: "Personally - within the next 5 years do you expect to: (Check all that apply)",
+          type: "checkbox",
+          skiptarget: "Q11",
+          options: [
+            { text: "​Care for a parent", target: "Q11",
+              eval: [{insurancecategory: "longtermcare", value: (+1)}] },
+            { text: "​​Get married", target: "Q11",
+              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "​Start a family", target: "Q11",
+              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "Other", target: "Q11" }
+          ],
+          answer: []
+        },
+         Q11: {
+          question: "​Financially - within the next 5 years do you expect to: (Check all that apply)",
+          type: "checkbox",
+          skiptarget: "Q12",
+          options: [
+            { text: "​​Buy a property", target: "Q12" },
+            { text: "​​​Sell a property", target: "Q12" },
+            { text: "​Pay off a loan", target: "Q12" },
+            { text: "Buy a business", target: "Q12" },
+            { text: "​​Sell a business", target: "Q12" },
+            { text: "​Other", target: "Q12" }
+          ],
+          answer: []
+        },
+        Q12: {
+          question: "​​If something happened and you were incapable of working – how long would you be able to use your savings to maintain your lifestyle?",
+          type: "radio",
+          skiptarget: "Q13",
+          options: [
+            { text: "​​​Less than 3 months", target: "Q13",
+              eval: [{insurancecategory: "disability", value: (+1)}] },
+            { text: "​​​Between 3 – 6 months", target: "Q13" },
+            { text: "​Up to a year", target: "Q13" }
+          ],
+          answer: []
+        },
+        Q13: {
+          question: "​​​If something happened and you could not get out of bed without assistance – is there someone that would be able to take care of you?",
+          type: "radio",
+          skiptarget: "Q14",
+          options: [
+            { text: "​​​Yes", target: "Q14" },
+            { text: "​​​No", target: "Q14",
+              eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)} ] },
+            { text: "​​I don’t know", target: "Q14" }
+          ],
+          answer: []
+        },
+        Q14: {
+          question: "​​​How much would you be able to comfortably put aside for insurance each month?",
+          type: "radio",
+          skiptarget: "Q15",
+          options: [
+            { text: "​​​Under $50", target: "Q15" },
+            { text: "​​​​$51 - $100", target: "Q15" },
+            { text: "​​​$100 - $250", target: "Q15" },
+            { text: "​​​I’m comfortable spending any amount of money as long as the product makes sense", target: "Q15" }
+          ],
+          answer: []
+        },
+        Q15: {
+          question: "​​​​​What is your gender?",
+          type: "radio",
+          skiptarget: "Q16",
+          options: [
+            { text: "​​​​Male", target: "Q16" },
+            { text: "​​​​Female", target: "Q16" },
+            { text: "​​​​Other", target: "Q16" }
+          ],
+          answer: []
+        },
+        Q16: {
+          question: "​​​​Do you smoke cigarettes?",
+          type: "radio",
+          skiptarget: "Q17",
+          options: [
+            { text: "​​​​Yes", target: "Q17" },
+            { text: "No", target: "Q17" }     
+          ],
+          answer: []
+        },
+        Q17: {
           page: "lastpage",
-          question: "Would you like to submit the following information?"
+          question: "Your Results"
         }
       }
     };
@@ -315,6 +355,11 @@ export default {
       // });
       
  
+    },
+    skip: function(target, question) {
+      this.navigation.push({ section: target });
+      this.answerchain.push({ question: question, answer: [{text: "N/A"}] });
+     
     },
     back: function() {
       this.navigation.pop();
@@ -337,11 +382,13 @@ export default {
       return this.lastNavigation.section;
     },
     compoundEval: function() {
-      let result = {lifeinsurance: 0, criticalillness: 0, disability: 0, longtermcare: 0};
+      let result = {lifeinsurance: 0, criticalillness: 0, disability: 0, longtermcare: 0, othercoverage: 0, termandpermanent: 0};
       this.answerchain.forEach(sectionresponse => {
         sectionresponse.answer.forEach(answer => {
           if (answer.eval!==undefined) {
-            result[answer.eval.insurancecategory] += answer.eval.value;
+            answer.eval.forEach(element => {
+              result[element.insurancecategory] += element.value;
+            });
           }
           else {
             console.log("no eval")
@@ -349,7 +396,19 @@ export default {
         });
       });
       return result;
+    },
+    evalArraySorted: function() {
+      let resultArray = [{category: "lifeinsurance", name: "Life Insurance", link: "/content/lifeinsurance", score: 0}, {category: "criticalillness", name: "Critical Illness Insurance", link: "/content/criticalillness", score: 0}, {category: "disability", name: "Disability Insurance", link: "/content/disability", score: 0}, {category: "longtermcare", name: "Long Term Care Insurance", link: "/content/longtermcare", score: 0}, {category: "othercoverage", name: "Other Coverage", link: "", score: 0}, {category: "termandpermanent", name: "Term and Permanent Insurance", link: "/content/thingstoknow", score: 0}];
+      resultArray.forEach(element => {
+        element.score = this.compoundEval[element.category];
+      });
+      resultArray.sort(function(a, b) {
+        return b.score - a.score;
+      });
+      return resultArray;
     }
+
+   
   }
 };
 </script>

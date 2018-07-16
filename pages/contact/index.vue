@@ -6,28 +6,44 @@
 
       <div v-if="!success.visible">
 
+        <p>If you would like to be contacted and receive further information, please fill out the form below.</p>
+        <br>
         <div class="field">
           <label class="label">Name</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Your name" value="" v-model="form.name">
+            <input :class="{'is-success': !$v.form.name.$invalid, 'is-danger': $v.form.name.$error}" class="input" type="text" placeholder="Your name" value="" v-model="form.name">
             <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
-            <span class="icon is-small is-right"><i class="fa fa-check"></i></span>
+            <span v-if="!$v.form.name.$invalid" class="icon is-small is-right has-text-success"><i class="fa fa-check"></i></span>
+            <span v-if="$v.form.name.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
           </div>
-          <p class="help">Please enter your name.</p>
+          <p v-if="$v.form.name.$invalid" class="help">Please enter your name.</p>
+          <span v-if="$v.form.name.$error">
+        <p v-if="!$v.form.name.required" class="has-text-danger has-text-weight-bold">
+          This field is required.
+        </p>
+      </span>
           </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Your email" value="" v-model="form.email">
+            <input :class="{'is-success': !$v.form.email.$invalid, 'is-danger': $v.form.email.$error}" class="input" type="email" placeholder="Your email" value="" v-model="form.email">
             <span class="icon is-small is-left">
             <i class="fa fa-envelope"></i>
             </span>
-            <span class="icon is-small is-right">
-            <i class="fa fa-exclamation-triangle"></i>
+            <span class="icon is-small is-right has-text-danger">
+            <i v-if="!$v.form.email.email" class="fa fa-exclamation-triangle"></i>
             </span>
+            <span v-if="$v.form.email.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
+            <span v-if="!$v.form.email.$invalid" class="icon is-small is-right has-text-success"><i class="fa fa-check"></i></span>
           </div>
-          <p class="help">Please enter a valid email address</p>
+          <p v-if="!$v.form.email.email" class="help">Please enter a valid email address</p>
+          <p v-if="!$v.form.email.required" class="help">Please enter your email address.</p>
+          <span v-if="$v.form.email.$error">
+        <p v-if="!$v.form.email.required" class="has-text-danger has-text-weight-bold">
+          This field is required.
+        </p>
+      </span>
         </div>
 
         <div class="field">
@@ -37,15 +53,7 @@
           </div>
         </div>
 
-        <br>
-        <div class="field">
-          <div class="control">
-            <label class="checkbox label">
-            <input type="checkbox" v-model="form.moreinfo">
-            I would like to be contacted to receive further information.
-            </label>
-          </div>
-        </div>
+       
 
         <br>
 
@@ -70,7 +78,9 @@
       </div>
 
       <div v-if="success.visible">
-        <p>Success</p>
+        <h2 class="subtitle">Success. Thank you for reaching out.</h2>
+        <p>We will get back to you shortly. In the meantime, we hope the resources on this site serve you well. Click <nuxt-link to="/">here</nuxt-link> to return to the home page.</p>
+        <br><br><br><br>
       </div>
    </div>
   </div>
@@ -80,6 +90,8 @@
 
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
+import { validationMixin } from 'vuelidate';
 let axios = require('axios')
 
 export default {
@@ -101,19 +113,24 @@ export default {
       sending: false
     }
   },
-  vuelidation: {
-    data: {
+  mixins: [validationMixin],
+  
+  validations: {
       form: { 
+        name: {
+          required
+        },
         email: {
-          required: true,
-          email: true
+          required,
+          email
         }
       }
-    }
+    
   },
 
   methods: {
     sendmail: function() {
+      this.$v.$touch();
       let subject = `${this.form.name} is getting in touch`;
       let text = `
         From: ${this.form.name}

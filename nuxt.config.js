@@ -57,6 +57,10 @@ module.exports = {
   
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
+  },
+  proxy: {
+    '/api/': 'http://localhost:8080'
   },
 
   /*

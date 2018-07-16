@@ -7,7 +7,7 @@
             <div class="field">
               <label class="label">Name</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Your name" value="">
+                <input class="input" type="text" placeholder="Your name" value="" v-model="form_name">
                 <span class="icon is-small is-left">
                   <i class="fa fa-user"></i>
                 </span>
@@ -21,8 +21,7 @@
             <div class="field">
               <label class="label">Email</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Your email" value=""
-                          >
+                <input class="input" type="email" placeholder="Your email" value="" v-model="form_email">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -36,14 +35,14 @@
             <div class="field">
               <label class="label">Message (optional)</label>
               <div class="control">
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <textarea class="textarea" placeholder="Textarea" v-model="form_message"></textarea>
               </div>
             </div>
             <br>
             <div class="field">
               <div class="control">
                 <label class="checkbox label">
-                  <input type="checkbox">
+                  <input type="checkbox" v-model="form_moreinfo">
                   I would like to be contacted to receive further information.
                 </label>
               </div>
@@ -88,12 +87,30 @@ export default {
 
   methods: {
     sendmail: function() {
+      let subject = `${this.form_name} is getting in touch`;
+      let text = `
+        From: ${this.form_name}
+        Email: ${this.form_email}
+        He wants to receive futher information: ${this.form_moreinfo?'Yes':'No'}
+        Message:
+        ${this.form_message}
+      `;
+      let html = `
+        <p><b>From:</b> ${this.form_name}</p>
+        <p><b>Email:</b> ${this.form_email}</p>
+        <p><b>He wants to receive futher information:</b> ${this.form_moreinfo?'Yes':'No'}</p>
+        <hr>
+        <p><b>Message:</b></p>
+        <p><i>${this.form_message}</i></p>
+      `;
+
+
       axios.post('/api/send', {
-        to: 'ulf.michalek@gmail.com',
-        subject: 'Using axios',
-        text: 'works well',
-        html: '<i>works well</i>'
-      }).then(console.log).catch(console.error)
+        to: 'waldo@itsgoodcompany.com',
+        subject,
+        text,
+        html
+      }).then(console.log).catch(console.error);
     }
   }
 

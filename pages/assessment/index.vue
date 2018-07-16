@@ -28,7 +28,7 @@
   </ol>
 </div>
 <br>
-<p>If you wish, you can submit these results by filling out the contact form below. We will gladly reach out to you.</p>
+<p>If you wish, you can submit your results by filling out the contact form below. We will gladly reach out to you.</p>
 <br>
 <div class="my-form">
            <div class="field">
@@ -496,8 +496,11 @@ export default {
   background-color: #0000ff;
   position: relative;
   box-shadow: 0px 5px 30px #00000098;
-  
+}
 
+.my-form {
+  margin-left: 1em;
+  max-width: 30em;;
 }
 
 .my-resultlist {

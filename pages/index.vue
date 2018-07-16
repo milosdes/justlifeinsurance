@@ -85,7 +85,7 @@
      
 
 
-    <div class="columns is-variable is-6">
+    <div class="columns is-variable is-6 my-contentrow">
 
       <div class="column">
           <nuxt-link to="/content/lifeinsurance">
@@ -112,7 +112,7 @@
 
     </div>
     
-    <div class="columns is-variable is-6">
+    <div class="columns is-variable is-6 my-contentrow">
       <div class="column">
         <nuxt-link to="/content/disability">
         <div class="catbox fold">         
@@ -174,6 +174,7 @@ export default {
   width: 250px;
   height: 250px;
   background-color: white;
+  box-shadow: 5px 5px 150px rgba(128, 128, 128, 0.479);
   font-size: 1.2em;
   border-radius: 9999px;
   padding: 2em;
@@ -202,22 +203,22 @@ export default {
 }
 
 #didyouknow {
-  box-shadow: 5px 5px 15px grey;
-  background: 
-  linear-gradient(
-    180deg,
-    rgb(194, 255, 153) 0%,
-    rgb(78, 212, 156) 100%
-  );
-  border-radius: 9px;
-  max-width: 300px;
-  margin-top: -4em;
+  /* box-shadow: 15px 15px 35px rgba(128, 128, 128, 0.349); */
+  /* background: #ffd000; */
+  
+  border-left: 20px solid #18d17b;
+  border-right: 20px solid #18d165;
+  
+  border-radius: 295px 280px 275px 232px/360px 485px 194px 215px;
+  max-width: 350px;
+  margin-top: -6em;
   margin-left: -2em;
   margin-right: -2em;
   margin-bottom: -1.7em;
   position: relative;
   z-index: 1;
   padding: 1.5em;
+ 
   -ms-transform: rotate(-3deg); /* IE 9 */
   -webkit-transform: rotate(-3deg); /* Safari */
   transform: rotate(-3deg); /* Standard syntax */
@@ -230,8 +231,8 @@ export default {
   background: linear-gradient(
     180deg,
     #f2fff500 0%,
-    rgba(20, 172, 110, 0.4) 30%,
-    rgba(20, 172, 110, 0.4) 50%,
+    rgba(20, 172, 86, 0.356) 20%,
+    rgba(20, 172, 86, 0.37) 50%,
     rgba(20, 177, 138, 0) 100%
   );
   
@@ -258,11 +259,22 @@ export default {
   padding: 2em;
 }
 
+.my-contentrow {
+  margin-bottom: 2em;
+}
+
 .catbox {
+  border-left: 5px solid #05b96800;
   height: 100%;
-  padding: 20px;
+  padding: 25px;
   background-color: #ffffffe0;
-  box-shadow: 5px 5px 15px grey;
+  box-shadow: 5px 10px 30px rgba(128, 128, 128, 0.5);
+  transition: all ease 0.5s;
+}
+
+.catbox h1 {
+  margin-top: 1.5em;
+  transition: all ease 0.5s;
 }
 
 .columns {
@@ -270,11 +282,26 @@ export default {
   align-items: stretch;
 }
 .catbox:hover {
+  transform: translate(0,-0.5em);
+  /* transform: scale(1.1,1.1); */
+  /* border-left: 5px solid #05b968; */
   background-color: #fafafa;
-  box-shadow:  0px 10px #cfcfcf;
+  box-shadow: 5px 10px 30px rgb(128, 128, 128);
+  transition: all ease 0.5s;
 }
 
-.fold {
+.catbox:hover ::before {
+  box-shadow: 5px 15px 30px rgb(128, 128, 128);
+  transition: all ease 0.5s;
+  
+}
+
+.catbox:hover h1 {
+  transform: translateX(0.5em);
+  transition: all ease 0.5s;
+}
+
+/* .fold {
   padding: 25px 25px;
   position: relative;
   text-decoration: none;
@@ -287,24 +314,24 @@ export default {
   paper fold corner
 */
 
-.fold:before {
+/* .fold:before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   border-style: solid;
-  border-width: 0 25px 25px 0;
+  border-width: 25px 25px 25px 25px;
   border-color: #dddddd #ffffff;
   transition: all ease 0.5s;
-}
+} */
 
 /*
   on li hover make paper fold larger
 */
-.fold:hover:before {
-  border-width: 0 50px 50px 0;
+/* .fold:hover:before {
+  border-width: 50px 50px 50px 50px;
   border-color: #eee #ffffff;
-}
+} */ */
 
 .fadeOpacity-enter-active,
 .fadeOpacity-leave-active {

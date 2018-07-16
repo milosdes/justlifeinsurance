@@ -1,77 +1,104 @@
 <template>
-    <section class="section">
-        <div class="container">
-            <div class="my-textblock">
-            <h1 class="title">Contact</h1>
+ <section class="section">
+  <div class="container">
+   <div class="my-textblock">
+      <h1 class="title">Contact</h1>
 
-            <div class="field">
-              <label class="label">Name</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Your name" value="" v-model="form_name">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fa fa-check"></i>
-                </span>
-              </div>
-              <p class="help">Please enter your name.</p>
-            </div>
+      <div v-if="!success.visible">
 
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Your email" value="" v-model="form_email">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fa fa-exclamation-triangle"></i>
-                </span>
-              </div>
-              <p class="help">Please enter a valid email address</p>
-            </div>
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Your name" value="" v-model="form.name">
+            <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+            <span class="icon is-small is-right"><i class="fa fa-check"></i></span>
+          </div>
+          <p class="help">Please enter your name.</p>
+          </div>
 
-            <div class="field">
-              <label class="label">Message (optional)</label>
-              <div class="control">
-                <textarea class="textarea" placeholder="Textarea" v-model="form_message"></textarea>
-              </div>
-            </div>
-            <br>
-            <div class="field">
-              <div class="control">
-                <label class="checkbox label">
-                  <input type="checkbox" v-model="form_moreinfo">
-                  I would like to be contacted to receive further information.
-                </label>
-              </div>
-            </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Your email" value="" v-model="form.email">
+            <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+            <i class="fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help">Please enter a valid email address</p>
+        </div>
 
-            <br>
+        <div class="field">
+          <label class="label">Message (optional)</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Textarea" v-model="form.message"></textarea>
+          </div>
+        </div>
 
-            <div class="field is-grouped">
-              <div class="control">
-                <button @click="sendmail()" class="button is-primary is-outlined">Submit</button>
-              </div>
+        <br>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox label">
+            <input type="checkbox" v-model="form.moreinfo">
+            I would like to be contacted to receive further information.
+            </label>
+          </div>
+        </div>
 
-            </div>
+        <br>
 
-        </div>    
-    </div>
-  </section>
+        <div v-if="warningmsg.visible">
+          <article class="message is-warning">
+          <div class="message-body">
+            {{warningmsg.text}}
+          </div>
+          </article>
+          <br>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button @click="sendmail()" class="button is-primary is-outlined"
+            v-if="!sending">Submit</button>
+
+            <button class="button is-loading"
+            v-if="sending">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="success.visible">
+        <p>Success</p>
+      </div>
+   </div>
+  </div>
+ </section>
 </template>
 
 
 
 <script>
 let axios = require('axios')
+
 export default {
   data: function() {
     return {
       form: {
-        email: ''
-      }
+        email: '',
+        name: '',
+        message: '',
+        moreinfo: true
+      },
+      warningmsg: {
+          visible: false,
+          text: ''
+      },
+      success: {
+          visible: false
+      },
+      sending: false
     }
   },
   vuelidation: {
@@ -87,39 +114,53 @@ export default {
 
   methods: {
     sendmail: function() {
-      let subject = `${this.form_name} is getting in touch`;
+      let subject = `${this.form.name} is getting in touch`;
       let text = `
-        From: ${this.form_name}
-        Email: ${this.form_email}
-        He wants to receive futher information: ${this.form_moreinfo?'Yes':'No'}
+        From: ${this.form.name}
+        Email: ${this.form.email}
+        He wants to receive futher information: ${this.form.moreinfo?'Yes':'No'}
         Message:
-        ${this.form_message}
+        ${this.form.message}
       `;
       let html = `
-        <p><b>From:</b> ${this.form_name}</p>
-        <p><b>Email:</b> ${this.form_email}</p>
-        <p><b>He wants to receive futher information:</b> ${this.form_moreinfo?'Yes':'No'}</p>
+        <p><b>From:</b> ${this.form.name}</p>
+        <p><b>Email:</b> ${this.form.email}</p>
+        <p><b>He wants to receive futher information:</b> ${this.form.moreinfo?'Yes':'No'}</p>
         <hr>
         <p><b>Message:</b></p>
-        <p><i>${this.form_message}</i></p>
+        <p><i>${this.form.message}</i></p>
       `;
 
-
+      this.sending = true
       axios.post('/api/send', {
         to: 'waldo@itsgoodcompany.com',
         subject,
         text,
         html
-      }).then(console.log).catch(console.error);
+      }).then((res) => {
+        this.sending = false
+          if (res.data.ok === true) {
+            this.showSuccess()
+          } else {
+          this.showWarningMsg('Sorry, cannot send mail. Try again.')
+          }
+      }).catch((res) => {
+        this.sending = false
+          console.error(res)
+          this.showWarningMsg('Sorry, cannot send mail. Try again.')
+      });
+    },
+    showSuccess: function() {
+      this.success.visible = true
+    },
+    showWarningMsg: function(text) {
+      this.warningmsg.visible = true
+      this.warningmsg.text = text
     }
-  }
-
+  },
 }
 
-
-
 </script>
-
 
 
 <style scoped>
@@ -141,5 +182,3 @@ export default {
     margin-top: 2em;
 }
 </style>
-
-

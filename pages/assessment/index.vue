@@ -5,6 +5,9 @@
 <div class="container textpage">
 
 
+
+
+
 <transition name="slide-fade" mode="out-in">
   <div :key="quiz[sectionValue].question">
 <h2 class="title">{{ quiz[sectionValue].question }}</h2>
@@ -15,22 +18,85 @@
 
 <div v-if="quiz[sectionValue].page==='lastpage'" :key="finalpage" class="my-assessment">
   
-<h2 class="subtitle">These are topics which, based on your answers, are relevant to you. (sorted by relevance)</h2>
+<h2 class="subtitle">These are topics which, based on your answers, are the most relevant to you.</h2>
+<p><small>Please click on a subject to open it in a new window.</small></p>
   
-  <ol>
-    <li :key="cat" v-for="cat in evalArraySorted"><a :href="cat.link" target="_blank">{{ cat.name }}</a></li>
+ <div id="resultgraphs">
+   <ol class="my-resultlist">
+    <li class="has-text-weight-bold" :key="cat" v-for="cat in evalArraySorted"><a :href="cat.link" target="_blank">{{ cat.name }}</a>
+    <div class="my-bar" :style="{ width: (cat.score / (evalArraySorted[0].score / 100)) + '%', opacity: (cat.score / (evalArraySorted[0].score / 1))*0.3 }" width="200px" ></div></li>
   </ol>
+</div>
+<br>
+<p>If you wish, you can submit these results by filling out the contact form below. We will gladly reach out to you.</p>
+<br>
+<div class="my-form">
+           <div class="field">
+              <label class="label">Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Your name" value="">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fa fa-check"></i>
+                </span>
+              </div>
+              <p class="help">Please enter your name.</p>
+            </div>
+
+            <div class="field">
+              <label class="label">Birthdate</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Your name" value="">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fa fa-check"></i>
+                </span>
+              </div>
+              <p class="help">Please enter your date of birth.</p>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Your email" value=""
+                          >
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fa fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <p class="help">Please enter a valid email address</p>
+            </div>
+
+            <div class="field">
+              <label class="label">Message (optional)</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Textarea"></textarea>
+              </div>
+            </div>
   
-  
-  
-  <ul>
+             <div class="field">
+              <div class="control">
+                <label class="checkbox label">
+                  <input type="checkbox">
+                  I consent to the <nuxt-link to="/privacy">privacy policy</nuxt-link>
+                </label>
+              </div>
+            </div>
+  </div>
+  <!-- <ul>
     <li :key="navAnswer" v-for="navAnswer in answerchain">
       <p>{{ navAnswer.question }}</p>
       <p class="answerprint" :key="item" v-for="item in navAnswer.answer">"{{ item.text }} {{ item.additionalText }}"</p>
       <br>
     </li>
-  </ul>
-<br>
+  </ul> -->
 
 <br>
   <div class="assessmentnav">
@@ -74,24 +140,32 @@
 </transition>
 
 
-
-
 </div>
 </section>
 </div>
 
 </template>
 
+
+
+
+
+
+
+
 <script>
+
 export default {
   transition: "fadeOpacity",
   components: {},
+ 
 
   data: function() {
     return {
       navigation: [{ section: "Q1", answer: "" }],
       answerchain: [],
       
+
 
       quiz: {
        
@@ -205,7 +279,7 @@ export default {
           type: "checkbox",
           skiptarget: "Q8",
           options: [
-            { text: "​Chequing / savings accounts at your bank", target: "Q6"},
+            { text: "​Chequing / savings accounts at your bank", target: "Q8"},
             { text:"Non-registered investments", target: "Q8"},
             { text:"RRSP", target: "Q8"},
             { text:"TFSA", target: "Q8"},
@@ -382,7 +456,7 @@ export default {
       return this.lastNavigation.section;
     },
     compoundEval: function() {
-      let result = {lifeinsurance: 0, criticalillness: 0, disability: 0, longtermcare: 0, othercoverage: 0, termandpermanent: 0};
+      let result = {lifeinsurance: 2, criticalillness: 2, disability: 2, longtermcare: 2, othercoverage: 2, termandpermanent: 2};
       this.answerchain.forEach(sectionresponse => {
         sectionresponse.answer.forEach(answer => {
           if (answer.eval!==undefined) {
@@ -416,7 +490,19 @@ export default {
 
 <style scoped>
 
+.my-bar {
+  height: 25px;
+  border-radius: 5px;
+  background-color: #0000ff;
+  position: relative;
+  box-shadow: 0px 5px 30px #00000098;
+  
 
+}
+
+.my-resultlist {
+  margin-left: 1em;
+}
 
 .assessmentnav ul li {
   display: inline;

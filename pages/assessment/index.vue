@@ -193,7 +193,7 @@ export default {
 
   data: function() {
     return {
-      navigation: [{ section: "Q17", answer: "" }],
+      navigation: [{ section: "Q1", answer: "" }],
       answerchain: [],
 
       form: {
@@ -523,7 +523,7 @@ mixins: [validationMixin],
       });
       this.sending = true
       axios.post('/api/send', {
-        to: 'waldo@itsgoodcompany.com',
+        to: ['jinx.ng@gmail.com', 'justin@justlifeinsurance.ca'],
         subject,
         text,
         html

@@ -25,6 +25,7 @@
     "css-loader": "^0.28.11",
     "font-awesome": "^4.7.0",
     "koa": "^2.3.0",
+    "moment": "^2.22.2",
     "nuxt": "^1.4.1",
     "nuxt-bulma-slim": "^0.3.2",
     "sass-loader": "^7.0.3",

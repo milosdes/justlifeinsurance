@@ -31,7 +31,7 @@
             <span class="icon is-small is-left">
             <i class="fa fa-envelope"></i>
             </span>
-            <span class="icon is-small is-right has-text-danger">
+            <span class="icon is-small is-right has-text-warning">
             <i v-if="!$v.form.email.email" class="fa fa-exclamation-triangle"></i>
             </span>
             <span v-if="$v.form.email.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
@@ -49,7 +49,7 @@
         <div class="field">
           <label class="label">Message (optional)</label>
           <div class="control">
-            <textarea class="textarea" placeholder="Textarea" v-model="form.message"></textarea>
+            <textarea class="textarea" placeholder="Anything you'd like to tell us or ask us?" v-model="form.message"></textarea>
           </div>
         </div>
 

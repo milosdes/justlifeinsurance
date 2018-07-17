@@ -31,80 +31,105 @@
 <p>If you wish, you can submit your results by filling out the contact form below. We will gladly reach out to you.</p>
 <br>
 <div class="my-form">
-           <div class="field">
-              <label class="label">Name</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Your name" value="">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fa fa-check"></i>
-                </span>
-              </div>
-              <p class="help">Please enter your name.</p>
-            </div>
+           <div v-if="!success.visible">
 
-            <div class="field">
-              <label class="label">Birthdate</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Your name" value="">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-user"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fa fa-check"></i>
-                </span>
-              </div>
-              <p class="help">Please enter your date of birth.</p>
-            </div>
+        <p>If you would like to be contacted and receive further information, please fill out the form below.</p>
+        <br>
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control has-icons-left has-icons-right">
+            <input :class="{'is-success': !$v.form.name.$invalid, 'is-danger': $v.form.name.$error}" class="input" type="text" placeholder="Your name" value="" v-model="form.name">
+            <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+            <span v-if="!$v.form.name.$invalid" class="icon is-small is-right has-text-success"><i class="fa fa-check"></i></span>
+            <span v-if="$v.form.name.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
+          </div>
+          <p v-if="$v.form.name.$invalid" class="help">Please enter your name.</p>
+          <span v-if="$v.form.name.$error">
+            <p v-if="!$v.form.name.required" class="has-text-danger has-text-weight-bold">
+              This field is required.
+            </p>
+          </span>
+        </div>
 
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Your email" value=""
-                          >
-                <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
-                </span>
-                <span class="icon is-small is-right">
-                  <i class="fa fa-exclamation-triangle"></i>
-                </span>
-              </div>
-              <p class="help">Please enter a valid email address</p>
-            </div>
+        <div class="field">
+          <label class="label">Date of Birth</label>
+          <div class="control has-icons-left has-icons-right">
+            <input :class="{'is-success': $v.form.dob.isDate, 'is-danger': $v.form.dob.$error}" class="input" type="text" placeholder="YYYY-MM-DD" value="" v-model="form.dob">
+            <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+            <span v-if="$v.form.dob.isDate" class="icon is-small is-right has-text-success"><i class="fa fa-check"></i></span>
+            <!-- <span v-if="!$v.form.dob.isDate" class="icon is-small is-right has-text-warning"><i class="fa fa-exclamation-triangle"></i></span> -->
+            <span v-if="$v.form.dob.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
+          </div>
+          <p v-if="!$v.form.dob.isDate" class="help">Please enter your date of birth in the this format: YYYY-MM-DD.</p>
+          <span v-if="$v.form.dob.$error">
+            <p v-if="!$v.form.dob.required" class="has-text-danger has-text-weight-bold">
+              This field is required.
+            </p>
+          </span>
+        </div>
 
-            <div class="field">
-              <label class="label">Message (optional)</label>
-              <div class="control">
-                <textarea class="textarea" placeholder="Textarea"></textarea>
-              </div>
-            </div>
-  
-             <div class="field">
-              <div class="control">
-                <label class="checkbox label">
-                  <input type="checkbox">
-                  I consent to the <nuxt-link to="/privacy">privacy policy</nuxt-link>
-                </label>
-              </div>
-            </div>
-  </div>
-  <!-- <ul>
-    <li :key="navAnswer" v-for="navAnswer in answerchain">
-      <p>{{ navAnswer.question }}</p>
-      <p class="answerprint" :key="item" v-for="item in navAnswer.answer">"{{ item.text }} {{ item.additionalText }}"</p>
-      <br>
-    </li>
-  </ul> -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input :class="{'is-success': !$v.form.email.$invalid, 'is-danger': $v.form.email.$error}" class="input" type="email" placeholder="Your email" value="" v-model="form.email">
+            <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right has-text-warning">
+            <i v-if="!$v.form.email.email" class="fa fa-exclamation-triangle"></i>
+            </span>
+            <span v-if="$v.form.email.$error" class="icon is-small is-right has-text-danger"><i class="fa fa-exclamation-triangle"></i></span>
+            <span v-if="!$v.form.email.$invalid" class="icon is-small is-right has-text-success"><i class="fa fa-check"></i></span>
+          </div>
+          <p v-if="!$v.form.email.email" class="help">Please enter a valid email address</p>
+          <p v-if="!$v.form.email.required" class="help">Please enter your email address.</p>
+          <span v-if="$v.form.email.$error">
+        <p v-if="!$v.form.email.required" class="has-text-danger has-text-weight-bold">
+          This field is required.
+        </p>
+      </span>
+        </div>
 
-<br>
-  <div class="assessmentnav">
-  <ul>
-  <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">Back</a></li>
-  <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">Submit</a></li>
-  </ul>
-  </div>
+        <div class="field">
+          <label class="label">Message (optional)</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Anything you'd like to tell us or ask us?" v-model="form.message"></textarea>
+          </div>
+        </div>
+
+       
+
+        <br>
+
+        <div v-if="warningmsg.visible">
+          <article class="message is-warning">
+          <div class="message-body">
+            {{warningmsg.text}}
+          </div>
+          </article>
+          <br>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button @click="sendmail()" class="button is-primary is-outlined"
+            v-if="!sending">Submit</button>
+
+            <button class="button is-loading"
+            v-if="sending">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="success.visible">
+        <h2 class="subtitle">Success. Thank you for reaching out.</h2>
+        <p>We will get back to you shortly. In the meantime, we hope the resources on this site serve you well. Click <nuxt-link to="/">here</nuxt-link> to return to the home page.</p>
+        <br><br><br><br>
+      </div>
+</div>
+
+
+
 </div>
 
 <div v-else class="my-assessment">
@@ -134,6 +159,7 @@
 </ul>
 <br>
 <a v-if="quiz[sectionValue].skiptarget !== undefined" class="" v-on:click="skip(quiz[sectionValue].skiptarget, quiz[sectionValue].question)" href="#">Skip this question</a>
+
 </div> 
 </div>
 </div>
@@ -154,6 +180,11 @@
 
 
 <script>
+import moment from 'moment'
+import { required, email } from 'vuelidate/lib/validators'
+import { validationMixin } from 'vuelidate'
+let axios = require('axios')
+const isDate = (value) => moment(value, 'YYYY-MM-DD', true).isValid()
 
 export default {
   transition: "fadeOpacity",
@@ -162,8 +193,24 @@ export default {
 
   data: function() {
     return {
-      navigation: [{ section: "Q1", answer: "" }],
+      navigation: [{ section: "Q17", answer: "" }],
       answerchain: [],
+
+      form: {
+        dob: '',
+        email: '',
+        name: '',
+        message: '',
+        moreinfo: true
+      },
+      warningmsg: {
+          visible: false,
+          text: ''
+      },
+      success: {
+          visible: false
+      },
+      sending: false,
       
 
 
@@ -414,7 +461,97 @@ export default {
       }
     };
   },
+
+mixins: [validationMixin],
+  
+  validations: {
+      form: { 
+        dob: {
+          required,
+          isDate (value) {
+            return isDate(value)
+          }
+        },   
+        name: {
+          required
+        },
+        email: {
+          required,
+          email
+        }
+      }
+    
+},
+
   methods: {
+
+
+     sendmail: function() {
+      this.$v.$touch();
+      let subject = `${this.form.name} is getting in touch`;
+      let text = `
+        From: ${this.form.name}
+        Date of Birt: ${this.form.dob}
+        Email: ${this.form.email}
+        Message:
+        ${this.form.message}
+        Questionnaire results:
+      `;
+      answerchain.forEach(navAnswer => {
+        text += navAnswer.question + "\n";
+        navAnswer.answer.forEach(element => {
+          text += element.text + "\n";
+        });
+        text += "\n";
+      });
+      let html = `
+        <p><b>From:</b> ${this.form.name}</p>
+        <p><b>Email:</b> ${this.form.email}</p>
+        <p><b>Date of Birth:</b> ${this.form.dob}</p>
+        <hr>
+        <p><b>Message:</b></p>
+        <p><i>${this.form.message}</i></p>
+        <hr>
+        <p><b>Questionnaire Results:</b></p>
+      `;
+      answerchain.forEach(navAnswer => {
+        html += `<p> ${navAnswer.question}</p> <ul>`;
+        navAnswer.answer.forEach(element => {
+          html += `<li> ${element.text} </li>`;
+        });
+        html += `</ul>`;
+      });
+      this.sending = true
+      axios.post('/api/send', {
+        to: 'waldo@itsgoodcompany.com',
+        subject,
+        text,
+        html
+      }).then((res) => {
+        this.sending = false
+          if (res.data.ok === true) {
+            this.showSuccess()
+          } else {
+          this.showWarningMsg('Sorry, cannot send mail. Try again.')
+          }
+      }).catch((res) => {
+        this.sending = false
+          console.error(res)
+          this.showWarningMsg('Sorry, cannot send mail. Try again.')
+      });
+    },
+    showSuccess: function() {
+      this.success.visible = true
+    },
+    showWarningMsg: function(text) {
+      this.warningmsg.visible = true
+      this.warningmsg.text = text
+    },
+
+
+
+
+
     select: function(target, answer, question) {
       this.navigation.push({ section: target, answer: answer });
       this.answerchain.push({ question: question, answer: answer });
@@ -500,7 +637,7 @@ export default {
 
 .my-form {
   margin-left: 1em;
-  max-width: 30em;;
+  max-width: 800px;
 }
 
 .my-resultlist {

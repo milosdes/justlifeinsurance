@@ -214,13 +214,10 @@ Insurance companies typically classify each type of occupation with a ranking fr
 </template>
 
 <script>
-import Social from "~/components/social.vue";
 
 
 export default {
-    components: {
-        Social
-    },
+   
   transition: "fadeOpacity",
   data: function() {
     return {

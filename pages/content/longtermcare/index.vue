@@ -174,13 +174,10 @@ Other than the amount of time required, informal caregivers likely lack the trai
 </template>
 
 <script>
-import Social from "~/components/social.vue";
 
 
 export default {
-    components: {
-        Social
-    },
+  
   transition: "fadeOpacity",
   data: function() {
     return {

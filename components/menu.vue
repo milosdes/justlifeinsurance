@@ -1,4 +1,5 @@
 <template>
+
     <aside class="menu my-side-menu">
  
   <ul class="menu-list">
@@ -40,6 +41,7 @@
   </ul>
   
 </aside>
+
 </template>
 
 <style scoped>

@@ -216,13 +216,10 @@ The strict definitions mean that, if you satisfy the terms of the contract, the 
 </template>
 
 <script>
-import Social from "~/components/social.vue";
 
 
 export default {
-    components: {
-        Social
-    },
+  
   transition: "fadeOpacity",
   data: function() {
     return {

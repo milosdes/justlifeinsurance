@@ -206,9 +206,9 @@ export default {
   /* box-shadow: 15px 15px 35px rgba(128, 128, 128, 0.349); */
   /* background: #ffd000; */
   
-  border-left: 20px solid #18d17b;
+  /* border-left: 20px solid #18d17b;
   border-right: 20px solid #18d165;
-  
+   */
   border-radius: 295px 280px 275px 232px/360px 485px 194px 215px;
   max-width: 350px;
   margin-top: -6em;

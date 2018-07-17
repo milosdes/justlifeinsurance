@@ -16,7 +16,7 @@
 
 
 
-<div v-if="quiz[sectionValue].page==='lastpage'" :key="finalpage" class="my-assessment">
+<div v-if="quiz[sectionValue].page==='lastpage'" class="my-assessment">
   
 <h2 class="subtitle">These are topics which, based on your answers, are the most relevant to you.</h2>
 <p><small>Please click on a subject to open it in a new window.</small></p>
@@ -188,7 +188,6 @@ const isDate = (value) => moment(value, 'YYYY-MM-DD', true).isValid()
 
 export default {
   transition: "fadeOpacity",
-  components: {},
  
 
   data: function() {

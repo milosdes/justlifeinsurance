@@ -148,13 +148,11 @@
 
 <script>
 
-import Social from "~/components/social.vue";
+
 import Content from "~/static/content.json";
 
 export default {
-    components: {
-        Social
-    },
+  
   transition: "fadeOpacity",
     data: function() {
         return {

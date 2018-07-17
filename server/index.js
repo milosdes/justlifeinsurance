@@ -1,6 +1,6 @@
-
 const Koa = require('koa')
 const { Nuxt, Builder } = require('nuxt')
+const MailAPI = require('./mailapi')
 
 const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
@@ -37,4 +37,4 @@ async function start() {
   console.log('Server listening on http://' + host + ':' + port) // eslint-disable-line no-console
 }
 
-start()
+MailAPI.init(start)

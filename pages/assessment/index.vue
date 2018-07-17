@@ -497,7 +497,7 @@ mixins: [validationMixin],
         ${this.form.message}
         Questionnaire results:
       `;
-      answerchain.forEach(navAnswer => {
+      this.answerchain.forEach(navAnswer => {
         text += navAnswer.question + "\n";
         navAnswer.answer.forEach(element => {
           text += element.text + "\n";
@@ -514,7 +514,7 @@ mixins: [validationMixin],
         <hr>
         <p><b>Questionnaire Results:</b></p>
       `;
-      answerchain.forEach(navAnswer => {
+      this.answerchain.forEach(navAnswer => {
         html += `<p> ${navAnswer.question}</p> <ul>`;
         navAnswer.answer.forEach(element => {
           html += `<li> ${element.text} </li>`;

@@ -5,8 +5,8 @@ let smtpInfo = {
 	host: "smtp.zoho.com",
 	secure: true,
 	auth: {
-		user: 'waldo@hinweiss.com',
-		pass: 'cambiame'
+		user: 'john@itsgoodcompany.com',
+		pass: '0nlyL0v3'
 	}	
 }
 
@@ -18,7 +18,7 @@ const initEmailer = (initWebServer) => {
 	let emailer = nodemailer.createTransport(smtpInfo)
 	emailer.verify((err, success) => {
 		if (err) {
-			console.error(error)
+			console.error(err)
 			return
 		} 
 		console.log("Checked SMTP information.")

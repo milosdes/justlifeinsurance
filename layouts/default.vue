@@ -1,23 +1,17 @@
 <template>
   <div>
 
-         <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-beforeopen="beforeopen" @on-open="open" @on-beforeclose="beforeclose">
+    <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-beforeopen="beforeopen" @on-open="open" @on-beforeclose="beforeclose">
       <nav id="menu">
         <Menu />
       </nav>
       <main id="panel" class="panel">
         <Header />
-        <!-- <header>
-          <div id="menubutton">
-            <a class="toggle-button">☰</a>
-          </div>
-        </header> -->
-         <nuxt />
-            <Footer />
+        <nuxt />
+        <Footer />
       </main>
     </Slideout>
-
-
+ 
   </div>
 </template>
 
@@ -32,7 +26,7 @@ export default {
     Menu,
     Footer
   },
-
+ 
   methods: {
     close: function(eve) {
       eve.preventDefault();
@@ -42,7 +36,6 @@ export default {
       this.$children[0].slideout.panel.classList.add("panel-open");
     },
     open: function() {
-      console.log("slideoutOpen");
       this.$children[0].slideout.panel.addEventListener("click", this.close);
       this.$children[0].slideout.menu.addEventListener("click", this.close);
     },

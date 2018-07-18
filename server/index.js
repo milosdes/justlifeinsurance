@@ -38,3 +38,4 @@ async function start() {
 }
 
 MailAPI.init(start)
+// start()

@@ -33,8 +33,7 @@
 <div class="my-form">
            <div v-if="!success.visible">
 
-        <p>If you would like to be contacted and receive further information, please fill out the form below.</p>
-        <br>
+       <br>
         <div class="field">
           <label class="label">Name</label>
           <div class="control has-icons-left has-icons-right">

@@ -33,7 +33,7 @@ const initWebServer = (onSuccess) => (emailer) => {
 	web.post('/api/send/', (req, res) => {
 		console.log('>> Sending email')
 		let mail = {
-			from: "system@justlifeinsurance,
+			from: "system@justlifeinsurance.ca",
 			to: req.body.to,
 			subject: req.body.subject,
 			text: req.body.text,

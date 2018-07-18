@@ -5,8 +5,8 @@ let smtpInfo = {
 	host: "smtp.zoho.com",
 	secure: true,
 	auth: {
-		user: 'john@itsgoodcompany.com',
-		pass: '0nlyL0v3'
+		user: 'system@justlifeinsurance.ca',
+		pass: 'g00dc0mpany'
 	}	
 }
 
@@ -33,7 +33,7 @@ const initWebServer = (onSuccess) => (emailer) => {
 	web.post('/api/send/', (req, res) => {
 		console.log('>> Sending email')
 		let mail = {
-			from: "waldo@hinweiss.com",
+			from: "system@justlifeinsurance,
 			to: req.body.to,
 			subject: req.body.subject,
 			text: req.body.text,

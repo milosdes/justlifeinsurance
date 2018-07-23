@@ -23,8 +23,7 @@
 
 <div v-if="quiz[sectionValue].page==='lastpage'" class="my-assessment">
   
-<h2 class="subtitle">These are topics which, based on your answers, are the most relevant to you.</h2>
-<br>
+
 <p><small>Please click on a subject to open it in a new window.</small></p>
   
  <div id="resultgraphs">
@@ -463,7 +462,7 @@ export default {
         },
         Q17: {
           page: "lastpage",
-          question: "Your Results"
+          question: "Based on your answers, the following topics are the most relevant to you."
         }
       }
     };

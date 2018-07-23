@@ -615,7 +615,7 @@ mixins: [validationMixin],
       return result;
     },
     evalArraySorted: function() {
-      let resultArray = [{category: "lifeinsurance", name: "Life Insurance", link: "/content/lifeinsurance", score: 0}, {category: "criticalillness", name: "Critical Illness Insurance", link: "/content/criticalillness", score: 0}, {category: "disability", name: "Disability Insurance", link: "/content/disability", score: 0}, {category: "longtermcare", name: "Long Term Care Insurance", link: "/content/longtermcare", score: 0}, {category: "othercoverage", name: "Other Coverage", link: "", score: 0}, {category: "termandpermanent", name: "Term and Permanent Insurance", link: "/content/thingstoknow", score: 0}];
+      let resultArray = [{category: "lifeinsurance", name: "Life Insurance", link: "/content/lifeinsurance", score: 0}, {category: "criticalillness", name: "Critical Illness Insurance", link: "/content/criticalillness", score: 0}, {category: "disability", name: "Disability Insurance", link: "/content/disability", score: 0}, {category: "longtermcare", name: "Long Term Care Insurance", link: "/content/longtermcare", score: 0}, {category: "othercoverage", name: "Other Coverage", link: "/content/thingstoknow/othercoverage", score: 0}, {category: "termandpermanent", name: "Term and Permanent Insurance", link: "/content/thingstoknow", score: 0}];
       resultArray.forEach(element => {
         element.score = this.compoundEval[element.category];
       });

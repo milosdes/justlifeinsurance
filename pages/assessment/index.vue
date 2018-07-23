@@ -105,7 +105,7 @@
 
         <br>
 
-        <p><small>By clicking "submit", you agree to the <nuxt-link to="/privacy">privacy policy</nuxt-link> of this website.</small></p>
+        <p><small>By clicking "submit", you agree to the <a href="../privacy" target="_blank">privacy policy</a> of this website.</small></p>
         <br>
         <div v-if="warningmsg.visible">
           <article class="message is-warning">

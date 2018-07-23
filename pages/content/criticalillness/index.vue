@@ -46,7 +46,7 @@
                       title="Critical Illness Insurance"
                       description="Focus on recovering or spending your time on the important things if you are diagnosed with a critical illness."
                       quote="Focus on recovering or spending your time on the important things if you are diagnosed with a critical illness."
-                      hashtags="Critical Illness Insurance,Insurance"
+                      hashtags="criticalillnessinsurance,insurance"
                       inline-template>
   <div class="my-social-bar">
       <a href="#"><network network="facebook">

@@ -48,7 +48,7 @@
                       title="Long Term Care Insurance"
                       description="Supplements or replaces your income if your ability to work is impacted."
                       quote="Supplements or replaces your income if your ability to work is impacted."
-                      hashtags="Disability Insurance, Insurance"
+                      hashtags="disabilityinsurance, insurance"
                       inline-template>
   <div class="my-social-bar">
       <a href="#"><network network="facebook">

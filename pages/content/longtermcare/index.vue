@@ -47,7 +47,7 @@
                       title="Long Term Care Insurance"
                       description="Makes it easier to ask for help if you can no longer live independently."
                       quote="Makes it easier to ask for help if you can no longer live independently."
-                      hashtags="Long Term Care Insurance, Long Term Care, Insurance"
+                      hashtags="longtermcareinsurance, longtermcare, insurance"
                       inline-template>
   <div class="my-social-bar">
       <a href="#"><network network="facebook">

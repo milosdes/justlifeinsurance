@@ -31,7 +31,7 @@
                       title="Life Insurance"
                       description="Make sure finances won't be a concern for your loved ones in the event of your death."
                       quote="Make sure finances won't be a concern for your loved ones in the event of your death."
-                      hashtags="life insurance,insurance"
+                      hashtags="lifeinsurance,insurance"
                       inline-template>
   <div class="my-social-bar">
       <a href="#"><network network="facebook">

@@ -1,8 +1,43 @@
-ssh -i ~/.ssh/something some-user@digital-ocean-droplet 'bash -s' <<'ENDSSH'
-	pushd ~/justlifeinsurance
-	echo "[DEPLOY] Starting at $(date)" >> ~/server-logs.txt
-	sudo killall node
+#!/bin/bash
+
+echo "Connecting to justlifeinsurance.ca..."
+
+ssh -i ~/.ssh/justlifeinsurance root@206.189.71.171 'bash -s' <<'ENDSSH'
+	echo "We are in!"
+	cd /var/www/justlifeinsurance.ca
+
+	echo "============================="
+	echo "PULLING CODE!"
+	echo "============================="
+
+	git checkout -- "*"
 	git pull
-	yarn build
-	sudo PORT=80 yarn start
+	
+	echo "============================="
+	echo "NPM INSTALL"
+	echo "============================="
+
+	npm install
+
+	echo "============================="
+	echo "BUILDING..."
+	echo "============================="
+
+	npm run build
+
+	echo "============================="
+	echo "RELOADING..."
+	echo "============================="
+
+	pm2 reload justlifeinsurance
+	pm2 flush
+
+	echo "============================="
+	echo "SHOWING LOGS (Ctrl-C to exit)"
+	echo "============================="
+
+	pm2 logs justlifeinsurance
 ENDSSH
+
+# In case the server is not running (so reload fails)
+#		run `npm start` (in the DO server)

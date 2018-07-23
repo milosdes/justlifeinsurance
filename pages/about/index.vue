@@ -41,15 +41,6 @@ export default {
 
 <style scoped>
 
-.my-content ol {
-  margin-top: 1em;
-}
-
-.my-content ol li {
-  margin-left: 3em;
-  margin-top: 0.1em;
-  margin-bottom: 0.5em;
-}
 
 .fadeOpacity-enter-active,
 .fadeOpacity-leave-active {

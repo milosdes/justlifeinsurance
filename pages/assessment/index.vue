@@ -25,7 +25,7 @@
   
 
 <p><small>Please click on a subject to open it in a new window.</small></p>
-  
+<br>
  <div id="resultgraphs">
    <ol class="my-resultlist">
     <li class="has-text-weight-bold" :key="cat" v-for="cat in evalArraySorted"><a :href="cat.link" target="_blank">{{ cat.name }}</a>

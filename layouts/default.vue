@@ -148,6 +148,10 @@ text-align: center;
   padding-top: 2.2em;
 }
 
+.my-2ndtier-textbox p {
+  margin-bottom: 1em;
+}
+
 .gradientbg {
   background: rgb(184, 255, 200);
   background: linear-gradient(
@@ -190,10 +194,40 @@ text-align: center;
   background-position-y: -100px; */
 }
 
+.my-sidebox .icon {
+  margin-top: -0.8em;
+  margin-right: -0.8em;
+}
+
 .my-sidebox p {
   margin-top: 0.6em;
  
 }
+
+.footnotes {
+  margin-top: 3em;
+}
+
+.footnotes ul li {
+  text-indent: -0.9em;
+  margin-left: 1.9em;
+  margin-right: 1em;
+  list-style: none;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+
+.my-footnotelist {
+  margin-left: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+
+.my-footnotelist li {
+  margin-top: -0.5em;
+}
+
 
 @media screen and (max-width: 768px) {
   .contentboxheader {

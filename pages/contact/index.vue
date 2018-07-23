@@ -150,7 +150,7 @@ export default {
 
       this.sending = true
       axios.post('/api/send', {
-        to: ['jinx.ng@gmail.com', 'justin@justlifeinsurance.ca'],
+        to: 'justin@justlifeinsurance.ca',
         subject,
         text,
         html

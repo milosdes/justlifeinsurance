@@ -87,18 +87,9 @@
     </div>
     <div class="column is-two-thirds">
         <div class="contenttext">
-            <h2 class="subtitle">
-            A means of financial protection that becomes available if you are unable to care for yourself and require substantial assistance with at least 2 of the 6 activities of daily living.
-            </h2>
-            
-           
-        <p>
-            After a pre-determined waiting period, long term care contracts provide assistance in one of two ways; either you will receive a monthly benefit based on the coverage you chose or you will be reimbursed for eligible expenses that are outlined in your plan. You will be able to choose how long you wish to receive benefits for; either for a certain number of years or until you pass away.
-        </p>
-        <p>
-            Whether you choose to move to a facility that provides the services you need or you hire help and make changes to your home - long term care plans allow you to choose the type of assistance you feel is best for your needs.
-        </p>
-    </div> 
+                <h2 class="subtitle" v-html="Content.longtermcare.whatisit.headparagraph">{{ Content.longtermcare.whatisit.headparagraph }}</h2>
+                <p :key="p" v-for="p in Content.longtermcare.whatisit.paragraphs" v-html="p">{{ p }}</p>
+            </div> 
     </div>
 </div>   
    
@@ -121,16 +112,9 @@
     </div>
     <div class="column is-two-thirds">
         <div class="contenttext">
-            <h2 class="subtitle">
-                Most people have faith in government programs and willingly rely on them to be available if they need help in the future. While there is undoubtedly some protection afforded by the Canadian government, there is no guarantee that eligibility requirements will be met or that sufficient funds will be available when you need them.
-     </h2>
-   <p>
-       Having an independent contract with an insurer guarantees; how long you will wait before receiving benefits, how much you will be eligible to receive and how long you will receive benefits for.
-   </p>
-   <p>
-       By removing the unknowns, you will be able to properly plan your retirement knowing that the help you need will be available if you need it.
-   </p>
-    </div> 
+                <h2 class="subtitle">{{ Content.longtermcare.whyisitimportant.headparagraph }}</h2>
+                <p :key="p" v-for="p in Content.longtermcare.whyisitimportant.paragraphs" v-html="p">{{ p }}</p>
+            </div> 
     </div>
    
 </div>  
@@ -143,26 +127,35 @@
 
 <div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
-          <span class="icon is-large is-pulled-right">
-  <i class="fa fa-info-circle fa-2x"></i>
-</span>
-        <h2 class="subtitle">Things to keep in mind</h2>
-        <br>
-<p>
-Family and friends are often able to provide assistance if the need arises but some conditions may persist for long periods of time. While they may be happy to help, these caregivers are required to make large sacrifices.
-</p>
-<p>
-Other than the amount of time required, informal caregivers likely lack the training or know-how to confidently provide the care needed. They may not say so, but there will be a certain amount of stress and anxiety if they need to shoulder the responsibility of caring for a loved one.
-</p>
-
+        <span class="icon is-large is-pulled-right">
+            <i class="fa fa-info-circle fa-2x"></i>
+        </span>
+        <h2 class="subtitle" v-html="Content.longtermcare.sidebox.headline">{{ Content.lifeinsurance.sidebox.headline }}</h2>
+        <p :key="p" v-for="p in Content.longtermcare.sidebox.paragraphs" v-html="p">{{ p }}</p>         
     </div>
 </div> 
 
 </div> <!--end main columns-->
 
+<hr>
+<div class="footnotes">
+    <ul>
+        <li>
+            <sup id="fn1">1. Activities of daily living include:
+                <ul class="my-footnotelist">
+                    <li>bathing</li>
+                    <li>dressing</li>
+                    <li>toileting (going to and from the toilet)</li>
+                    <li>transferring (moving from a chair or out of bed)</li>
+                    <li>maintaining continence (controlling bodily functions)</li>
+                    <li>eating</li>
+                </ul>
+</sup>
+        </li>
+       
+    </ul>
+</div>
 
-
-<br>
 
 
 </div>
@@ -175,20 +168,16 @@ Other than the amount of time required, informal caregivers likely lack the trai
 
 <script>
 
+import Content from "~/static/content.json";
 
 export default {
   
   transition: "fadeOpacity",
-  data: function() {
-    return {
-      isShow: false
-    };
-  },
-  methods: {
-    toggle() {
-      this.isShow = !this.isShow;
+    data: function() {
+        return {
+            Content
+        }
     }
-  }
 };
 </script>
 

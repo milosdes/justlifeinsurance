@@ -4,13 +4,18 @@
 <section class="section">
 <div class="container textpage">
 
-
-
-
+<transition name="slide-fade" mode="out-in">
+  <div v-if="quiz[sectionValue].page!='lastpage'" class="my-progress ">
+    <div class="my-questioncount-container">
+      <h1 class="title has-text-weight-bold is-3 my-questioncount has-background-primary has-text-white"> {{ navigation.length }}</h1>
+    </div>
+    <progress class="progress is-primary is-small" :value="navigation.length" max="17">{{ navigation.length }}</progress>   
+  </div>
+</transition>
 
 <transition name="slide-fade" mode="out-in">
   <div :key="quiz[sectionValue].question">
-<h2 class="title">{{ quiz[sectionValue].question }}</h2>
+<h2 class="subtitle">{{ quiz[sectionValue].question }}</h2>
 
 
 
@@ -152,6 +157,7 @@
 <br>
 
 <div class="assessmentnav">
+ 
 <ul>
   <li><a class="button is-primary is-outlined" v-on:click="back()" v-if="hasBack" href="#">Back</a></li>
   <li><a class="button is-primary is-outlined" v-on:click="select(quiz[sectionValue].answer[0].target, quiz[sectionValue].answer, quiz[sectionValue].question)" href="#">Next</a></li>
@@ -521,7 +527,7 @@ mixins: [validationMixin],
       });
       this.sending = true
       axios.post('/api/send', {
-        to: ['jinx.ng@gmail.com', 'justin@justlifeinsurance.ca'],
+        to: 'justin@justlifeinsurance.ca',
         subject,
         text,
         html
@@ -624,6 +630,35 @@ mixins: [validationMixin],
 
 
 <style scoped>
+
+.progress::-webkit-progress-value {
+  transition: width 0.5s ease;
+}
+
+/* .my-questioncount-container {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.my-questioncount {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 42px;
+  margin-bottom: 0.4em;
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid #000000; */
+  border-radius: 9999px;
+  padding-top: 7px;
+  text-align: center;
+}
+
+.my-progress {
+  margin-bottom: 3em;
+  opacity: 0.5;
+  
+}
 
 .my-bar {
   height: 25px;

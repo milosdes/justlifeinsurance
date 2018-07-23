@@ -15,19 +15,9 @@
                     </div>
                 </div>
                 <div class="column is-two-thirds my-content">
-                    <h1 class="title">Our Purpose</h1>
-                    <br>
-                    <h2 class="subtitle">This website is meant to explain the principles of life insurance in a simplified and understandable way. The hope is to give users the knowledge necessary to make an informed decision about their needs and whether insurance should be considered.</h2>
-                    <br>
-                    <p>There were three assumptions made when creating this website:
-                    <ol>
-                        <li> Life insurance can help - it can make a difference for individuals, families and friends during difficult times.</li>
-                        <li> Each person should decide for themselves - but they need to understand the basics before an informed decision can be made.</li>
-                        <li> Form does not matter - if there is a need, the structure of the solution is not important.</li>
-                    </ol>
-                    </p>
-                    <br>
-                    <p>The importance of working with a good advisor cannot be understated, they will provide insight into the industry and help you find the best fit. Find someone who spends the time to understand your situation before recommending solutions and educate yourself so are confident in the solutions being implemented.</p>
+                    <div v-html="Content.about.ourpurpose.html">
+                        {{ Content.about.ourpurpose.html }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,9 +25,17 @@
 </template>
 
 <script>
+import Content from "~/static/content.json";
+
 export default {
-    transition: "fadeOpacity"
-}
+  
+  transition: "fadeOpacity",
+    data: function() {
+        return {
+            Content
+        }
+    }
+};
 </script>
 
 

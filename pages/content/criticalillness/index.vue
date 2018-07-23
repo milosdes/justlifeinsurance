@@ -86,16 +86,9 @@
     </div>
     <div class="column is-two-thirds">
         <div class="contenttext">
-            <h2 class="subtitle">
-           Provides financial safety so you can focus on recovering should you be diagnosed with one of <em>24 different conditions</em> or receive partial benefits for specified <em>early intervention conditions</em>.
-            </h2>
-        <p>  
-        A contract is established between you and an insurer that will pay you a specified benefit (typically tax-free) should you be diagnosed with a covered condition and satisfy the <em>survival period</em>.
-    </p>
-    <p>
-        Whether you use the funds to pay for treatment, take time off work or spend time with loved ones, critical illness insurance allows you to make a decision based on what is best for you at that time.
-    </p>  
-    </div> 
+            <h2 class="subtitle" v-html="Content.criticalillness.whatisit.headparagraph">{{ Content.criticalillness.whatisit.headparagraph }}</h2>
+            <p :key="p" v-for="p in Content.criticalillness.whatisit.paragraphs" v-html="p">{{ p }}</p>
+        </div> 
     </div>
 </div>   
    
@@ -118,19 +111,9 @@
     </div>
     <div class="column is-two-thirds">
         <div class="contenttext">
-            <h2 class="subtitle">
-        Advances in modern medicine has allowed people to survive conditions that were fatal in the past. Unfortunately, recovering to the point of resuming daily life still takes time.
-   
-       </h2>
- 
-      
-    <p>
-        Financial obligations don't pause during this process and patients are often forced to dip into their savings to make ends meet.
-    </p>
-    <p>
-        This means that, after recovering, you may have to work longer than you previously expected to make up for the interruption in your financial plan.
-    </p>
-    </div> 
+            <h2 class="subtitle" v-html="Content.criticalillness.whyisitimportant.headparagraph">{{ Content.criticalillness.whatisit.headparagraph }}</h2>
+            <p :key="p" v-for="p in Content.criticalillness.whyisitimportant.paragraphs" v-html="p">{{ p }}</p>
+        </div> 
     </div>
    
 </div>  
@@ -143,7 +126,7 @@
 
 
 <!--begin contentblock 3--> 
-<div class="contentblock">
+<!-- <div class="contentblock">
 
 <div class="columns is-8 is-variable">
     
@@ -152,31 +135,16 @@
         <div class="contentboxheader my-right">
              <img width="100px" src="~/assets/icons/quotation.svg" />
             <h2 class="subtitle is-3 ">Things to</h2>
-             <h1 class="title is-1">keep in <br> mind!</h1>
-             
+             <h1 class="title is-1">keep in <br> mind!</h1> 
         </div>
        
     </div>
     <div class="column is-two-thirds">
-        <div class="contenttext">
-            <h2 class="subtitle">
-         Critical Illness contracts have very strict definitions in terms of what's covered and what needs to be satisfied to receive the benefit.
-    
-         </h2>
-     
-       
-    <p>
-        The strict definitions mean that, if you satisfy the terms of the contract, the benefit is guaranteed to be paid out. However, it is possible that you are diagnosed with something that is not covered in the contract and thus would not receive a benefit.  
-    </p>
-    <p>
-        <i>If you have questions about covered conditions, make sure to ask to see a sample contract</i>.
-    </p>
-    </div> 
+        
     </div>
-   
 </div>  
 
-</div>
+</div> -->
 <!--end contentblock 3--> 
 
 
@@ -188,49 +156,86 @@
 
 <div class="column is-narrow is-one-third-desktop">
     <div class="box my-sidebox">
-          <span class="icon is-large is-pulled-right">
-  <i class="fa fa-info-circle fa-2x"></i>
-</span>
-        <h2 class="subtitle">Things to keep in mind</h2>
-        <br>
-<p>
-Critical Illness contracts have very strict definitions in terms of what's covered and what needs to be satisfied to receive the benefit.
-</p>
-<p>
-The strict definitions mean that, if you satisfy the terms of the contract, the benefit is guaranteed to be paid out. However, it is possible that you are diagnosed with something that is not covered in the contract and thus would not receive a benefit. <em>If you have questions about covered conditions, make sure to ask to see a sample contract</em>.
-
-</p>
-
+        <span class="icon is-large is-pulled-right">
+            <i class="fa fa-info-circle fa-2x"></i>
+        </span>
+        <h2 class="subtitle" v-html="Content.criticalillness.sidebox.headline">{{ Content.lifeinsurance.sidebox.headline }}</h2>
+        <p :key="p" v-for="p in Content.criticalillness.sidebox.paragraphs" v-html="p">{{ p }}</p>         
     </div>
 </div> 
 
-</div>
 </div> <!--end main columns-->
 
+<hr>
+<div class="footnotes">
+    <ul>
+        <li>
+            <sup id="fn1">1. Survival Period is typically 30 days.</sup>
+        </li>
+        <li>
+            <sup id="fn2">2. 
+                Early Intervention conditions
+                <ul class="my-footnotelist">
+                    <li>Chronic lymphocytic leukemia (CLL) Rai stage 0</li>
+                    <li>Coronary angioplasty</li>
+                    <li>Ductal carcinoma in situ of the breast</li>
+                    <li>Papillary or follicular thyroid cancer stage T1</li>
+                    <li>Stage A (T1a or T1b) prostate cancer</li>
+                    <li>Stage 1 malignant melanoma</li>
+                </ul>
+
+                Covered conditions
+                <ul class="my-footnotelist">
+                    <li>Aortic surgery</li>
+                    <li>Aplastic anemia</li>
+                    <li>Bacterial meningitis</li>
+                    <li>Benign brain tumour</li>
+                    <li>Blindness</li>
+                    <li>Cancer (life threatening)</li>
+                    <li>Coma</li>
+                    <li>Coronary artery bypass surgery</li>
+                    <li>Deafness</li>
+                    <li>Dementia, including Alzheimer’s disease</li>
+                    <li>Heart attack</li>
+                    <li>Heart valve replacement or repair</li>
+                    <li>Kidney failure</li>
+                    <li>Loss of limbs</li>
+                    <li>Loss of speech</li>
+                    <li>Major organ failure (on waiting list)</li>
+                    <li>Major organ transplant</li>
+                    <li>Motor neuron disease</li>
+                    <li>Multiple sclerosis</li>
+                    <li>Occupational HIV infection</li>
+                    <li>Paralysis</li>
+                    <li>Parkinson’s disease and specifed atypical parkinsonian disorders</li>
+                    <li>Severe burns</li>
+                    <li>Stroke</li>
+                </ul>
+            </sup>
+        </li>
+    </ul>
+</div>
+
+</div> 
 
 
-    </section>
 
-  
-    </div>
+</section>
+
+</div>
 </template>
 
 <script>
-
+import Content from "~/static/content.json";
 
 export default {
   
   transition: "fadeOpacity",
-  data: function() {
-    return {
-      isShow: false
-    };
-  },
-  methods: {
-    toggle() {
-      this.isShow = !this.isShow;
+    data: function() {
+        return {
+            Content
+        }
     }
-  }
 };
 </script>
 

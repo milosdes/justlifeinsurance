@@ -99,7 +99,7 @@
 
 
 <!--begin contentblock things to keep in mind-->
-<div class="contentblock" >
+<!-- <div class="contentblock" >
     <div class="columns is-8 is-variable">
         <div class="column is-one-third"> 
             <div class="contentboxheader my-right">
@@ -115,7 +115,7 @@
             </div> 
         </div> 
     </div>  
-</div>
+</div> -->
 <!--end contentblock things to keep in mind-->
 
 
@@ -134,8 +134,17 @@
 
 </div> <!--end main columns-->
 
-
-
+<hr>
+<div class="footnotes">
+    <ul>
+        <li>
+            <sup id="fn1">1. Probate - the process of taking a will to a court to confirm its legal validity.</sup>
+        </li>
+        <li>
+            <sup id="fn2">2. Examples of life insurance uses include paying for; outstanding liabilities or a mortgage, last expenses and funeral costs, childcare or funding the education of any dependents.</sup>
+        </li>
+    </ul>
+</div>
  
 </div><!--end main container-->
 

@@ -268,7 +268,7 @@ export default {
   height: 100%;
   padding: 25px;
   background-color: #ffffffe0;
-  box-shadow: 5px 10px 30px rgba(128, 128, 128, 0.5);
+  box-shadow: 5px 10px 30px rgba(128, 128, 128, 0.116);
   transition: all ease 0.5s;
 }
 
@@ -286,7 +286,7 @@ export default {
   /* transform: scale(1.1,1.1); */
   /* border-left: 5px solid #05b968; */
   background-color: #fafafa;
-  box-shadow: 5px 10px 30px rgb(128, 128, 128);
+  box-shadow: 5px 20px 30px rgba(128, 128, 128, 0.281);
   transition: all ease 0.5s;
 }
 

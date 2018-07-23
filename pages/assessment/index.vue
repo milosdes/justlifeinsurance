@@ -24,6 +24,7 @@
 <div v-if="quiz[sectionValue].page==='lastpage'" class="my-assessment">
   
 <h2 class="subtitle">These are topics which, based on your answers, are the most relevant to you.</h2>
+<br>
 <p><small>Please click on a subject to open it in a new window.</small></p>
   
  <div id="resultgraphs">
@@ -105,6 +106,8 @@
 
         <br>
 
+        <p><small>By clicking "submit", you agree to the <nuxt-link to="/privacy">privacy policy</nuxt-link> of this website.</small></p>
+        <br>
         <div v-if="warningmsg.visible">
           <article class="message is-warning">
           <div class="message-body">
@@ -319,8 +322,8 @@ export default {
           type: "checkbox",
           skiptarget: "Q7",
           options: [
-            { text: "​Decrease", target: "Q7"},
-            { text:"​Increase", target: "Q7"},
+            { text: "​Decrease", target: "Q7", eval: [{insurancecategory: "disability", value: (+1)}]},
+            { text:"​Increase", target: "Q7", eval: [{insurancecategory: "lifeinsurance", value: (+1)}]},
             { text:"​​Stay the same", target: "Q7"}
           ],
           answer: []
@@ -351,7 +354,7 @@ export default {
               target: "Q9",
               eval: [{insurancecategory: "termandpermanent", value: (+1)}] },
             { text: "Stays about the same",
-              target: "Q9"},
+              target: "Q9", eval: [{insurancecategory: "disability", value: (+1)}]},
             { text: "I don't know",
               target: "Q9"}
           ],
@@ -367,7 +370,7 @@ export default {
             { text: "Enter the workforce", target: "Q10" },
             { text: "Retire", target: "Q10",
               eval: [{insurancecategory: "othercoverage", value: (+1)}] },
-            { text: "Start a business", target: "Q10" },
+            { text: "Start a business", target: "Q10", eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
             { text: "Other", target: "Q10" }
           ],
           answer: []
@@ -421,7 +424,7 @@ export default {
             { text: "​​​Yes", target: "Q14" },
             { text: "​​​No", target: "Q14",
               eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)} ] },
-            { text: "​​I don’t know", target: "Q14" }
+            { text: "​​I don’t know", target: "Q14", eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}] }
           ],
           answer: []
         },
@@ -433,7 +436,7 @@ export default {
             { text: "​​​Under $50", target: "Q15" },
             { text: "​​​​$51 - $100", target: "Q15" },
             { text: "​​​$100 - $250", target: "Q15" },
-            { text: "​​​I’m comfortable spending any amount of money as long as the product makes sense", target: "Q15" }
+            { text: "​​​I’m comfortable spending any amount of money as long as the product makes sense", target: "Q15", eval: [ {insurancecategory: "termorpermanent", value: (+1)}] }
           ],
           answer: []
         },
@@ -597,7 +600,7 @@ mixins: [validationMixin],
       return this.lastNavigation.section;
     },
     compoundEval: function() {
-      let result = {lifeinsurance: 2, criticalillness: 2, disability: 2, longtermcare: 2, othercoverage: 2, termandpermanent: 2};
+      let result = {lifeinsurance: 1, criticalillness: 0.75, disability: 0.5, longtermcare: 0.25, othercoverage: 0, termandpermanent: 0};
       this.answerchain.forEach(sectionresponse => {
         sectionresponse.answer.forEach(answer => {
           if (answer.eval!==undefined) {

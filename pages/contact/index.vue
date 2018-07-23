@@ -56,6 +56,10 @@
        
 
         <br>
+       
+
+        <p><small>By clicking "submit", you agree to the <nuxt-link to="/privacy">privacy policy</nuxt-link> of this website.</small></p>
+        <br>
 
         <div v-if="warningmsg.visible">
           <article class="message is-warning">

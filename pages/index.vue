@@ -41,7 +41,7 @@
             Sometimes $#!+ happens
           </h1>
              <h2 class="subtitle is-4 has-text-white">
-            Find out what can help and make informed decisions about life insurance.
+            Learn about life insurance so you can make an informed decision.
           </h2>
         </div>
 

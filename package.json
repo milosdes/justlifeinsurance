@@ -27,8 +27,8 @@
     "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "koa": "^2.3.0",
-    "nodemailer": "^4.6.7",
     "moment": "^2.22.2",
+    "nodemailer": "^4.6.7",
     "nuxt": "^1.4.1",
     "nuxt-bulma-slim": "^0.3.2",
     "sass-loader": "^7.0.3",
@@ -49,6 +49,7 @@
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.9.1",
     "nodemon": "^1.11.0",
-    "nuxt-sass-resources-loader": "^2.0.2"
+    "nuxt-sass-resources-loader": "^2.0.2",
+    "pm2": "^3.0.1"
   }
 }

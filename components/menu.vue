@@ -33,7 +33,7 @@
     General
   </p>
   <ul class="menu-list">
-    <li><nuxt-link to="/about">About this page</nuxt-link></li>
+    <li><nuxt-link to="/about">About us</nuxt-link></li>
     <li><nuxt-link to="/privacy">Privacy</nuxt-link> </li>
     <li><nuxt-link to="/termsofuse">Terms of use</nuxt-link></li>
     <li><nuxt-link to="/contact">Contact</nuxt-link> </li>

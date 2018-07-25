@@ -28,7 +28,7 @@
                 <br>
                 <ul>
                     <li>
-                        <small><nuxt-link to="/about">About this page</nuxt-link></small>
+                        <small><nuxt-link to="/about">About us</nuxt-link></small>
                     </li>
                     <li>
                         <small><nuxt-link to="/privacy">Privacy</nuxt-link></small>

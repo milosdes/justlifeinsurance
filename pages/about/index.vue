@@ -2,7 +2,7 @@
 <template>
     <section class="section">
         <div class="container">
-            <h1 class="title">About this Page</h1>
+            <h1 class="title">About us</h1>
             <hr>
             <br>
               <div class="columns">

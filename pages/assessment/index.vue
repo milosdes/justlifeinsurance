@@ -9,7 +9,7 @@
     <div class="my-questioncount-container">
       <h1 class="title has-text-weight-bold is-3 my-questioncount has-background-primary has-text-white"> {{ navigation.length }}</h1>
     </div>
-    <progress class="progress is-primary is-small" :value="navigation.length" max="17">{{ navigation.length }}</progress>   
+    <progress class="progress is-primary is-small" :value="navigation.length" max="13">{{ navigation.length }}</progress>   
   </div>
 </transition>
 
@@ -224,7 +224,7 @@ export default {
        
        Q1: {
           question:
-            "Which type(s) of insurance would you confidently say you have a good understanding of?",
+            "Which type(s) of insurance do you understand? (check all that apply)",
           type: "checkbox",
           skiptarget: "Q2",
           options: [
@@ -238,7 +238,7 @@ export default {
         },
         Q2: {
           question:
-            "Do you have any insurance policies that are currently in force? (Either through a group plan or an independent contract)",
+            "Do you currently have any insurance policies in force? (Either through a group plan or an independent contract)",
           type: "radio",
           skiptarget: "Q3",
           options: [
@@ -253,20 +253,10 @@ export default {
             "What type(s) of insurance do you have in force? (check all that apply)",
           type: "checkbox",
           options: [
-            { text: "​​Critical Illness Insurance", target: "Q2b" },
-            { text: "​​Disability Insurance", target: "Q2b" },
-            { text: "​​Life Insurance", target: "Q2b" },
-            { text: "​​​Long Term Care Insurance", target: "Q2b" }
-          ],
-          answer: []
-        },
-        Q2b: {
-          question:
-            "Do you understand what is covered under your current policy?",
-          type: "radio",
-          options: [
-            { text: "​​Yes", target: "Q3" },
-            { text: "​​No", target: "Q3" },
+            { text: "​​Critical Illness Insurance", target: "Q3" },
+            { text: "​​Disability Insurance", target: "Q3" },
+            { text: "​​Life Insurance", target: "Q3" },
+            { text: "​​​Long Term Care Insurance", target: "Q3" }
           ],
           answer: []
         },
@@ -276,8 +266,8 @@ export default {
           type: "radio",
           skiptarget: "Q4",
           options: [
-            { text: "Single", target: "Q4" },
-            {text: "In a committed relationship",target: "Q4"},
+            { text: "Single", target: "Q4", eval: [{insurancecategory: "disability", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}] },
+            { text: "In a committed relationship",target: "Q4", eval: [{insurancecategory: "lifeinsurance", value: (+1)}]},
             { text: "Divorced", target: "Q4" },
             { text: "Widowed", target: "Q4" },
             { text: "Other", target: "Q4" }
@@ -285,34 +275,31 @@ export default {
           answer: []
         },
         Q4: {
-          question: "Is anyone dependent on you at this time?",
+          question: "Is anyone dependent on you at this time? (i.e. a partner / child / parent)",
           type: "radio",
           skiptarget: "Q5",
           options: [
-            { text: "Yes", target: "Q4a", eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "Yes", target: "Q5", eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
             { text: "No", target: "Q5", eval: [{insurancecategory: "lifeinsurance", value: (-1)}] }
           ],
           answer: []
         },
-        Q4a: {
-          question: "Who is dependent on you?",
-          type: "checkbox",
-          options: [
-            { text: "A partner", target: "Q5" },
-            { text: "One or more children", target: "Q5" },
-            { text: "Parent(s) or grandparent(s)", target: "Q5" },
-            { text: "Other", target: "Q5" }
-          ],
-          answer: []
-        },
         Q5: {
-          question: "Which statement best describes your current financial situation at this time? (check all that apply)",
-          type: "checkbox",
+          question:
+            "On average, at the end of each month, my net worth:",
+          type: "radio",
           skiptarget: "Q6",
           options: [
-            { text: "​I have more debt / liability than assets", target: "Q6", eval: [{insurancecategory: "lifeinsurance", value: (+1)}]},
-            { text:"​I have more assets than debt / liability", target: "Q6", eval: [{insurancecategory: "criticalillness", value: (+1)}]},
-            { text:"​My assets and liabilities are close to being equal", target: "Q6", eval: [{insurancecategory: "disability", value: (+1)}]}
+            { text: "Decreases (the ending balance in my bank account is less than it was at the beginning of the month)",
+              target: "Q6",
+              eval: [{insurancecategory: "disability", value: (+1)}] },
+            { text: "Increases (the ending balance in my bank account is greater than it was at the beginning of the month)", 
+              target: "Q6",
+              eval: [{insurancecategory: "termandpermanent", value: (+1)}] },
+            { text: "Stays about the same",
+              target: "Q6", eval: [{insurancecategory: "criticalillness", value: (+1)}]},
+            { text: "I don't know",
+              target: "Q6"}
           ],
           answer: []
         },
@@ -321,146 +308,100 @@ export default {
           type: "checkbox",
           skiptarget: "Q7",
           options: [
-            { text: "​Decrease", target: "Q7", eval: [{insurancecategory: "disability", value: (+1)}]},
+            { text: "​Decrease", target: "Q7", eval: [{insurancecategory: "termandpermanent", value: (+1)}]},
             { text:"​Increase", target: "Q7", eval: [{insurancecategory: "lifeinsurance", value: (+1)}]},
-            { text:"​​Stay the same", target: "Q7"}
+            { text:"​​Stay the same", target: "Q7", eval: [{insurancecategory: "criticalillness", value: (+1)}]}
           ],
           answer: []
         },
         Q7: {
-          question: "​What type of savings / investment vehicle have you used in the past?",
+          question: "Occupationally - within the next 5 years do you expect to: (Check all that apply)",
           type: "checkbox",
           skiptarget: "Q8",
           options: [
-            { text: "​Chequing / savings accounts at your bank", target: "Q8"},
-            { text:"Non-registered investments", target: "Q8"},
-            { text:"RRSP", target: "Q8"},
-            { text:"TFSA", target: "Q8"},
-            { text:"​​Other", target: "Q8"},
-            { text:"​​I don’t know", target: "Q8"}
+            { text: "Change employment / careers", target: "Q8",
+              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
+            { text: "Enter the workforce", target: "Q8" },
+            { text: "Retire", target: "Q8",
+              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
+            { text: "Start a business", target: "Q8", eval: [{insurancecategory: "lifeinsurance", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}, {insurancecategory: "disability", value: (+1)}] },
+            { text: "Other", target: "Q8" }
           ],
           answer: []
         },
         Q8: {
-          question:
-            "On average, at the end of each month, my net worth:",
-          type: "radio",
+          question: "Personally - within the next 5 years do you expect to: (Check all that apply)",
+          type: "checkbox",
           skiptarget: "Q9",
           options: [
-            { text: "Decreases (the ending balance in my bank account is less than it was at the beginning of the month)",
-              target: "Q9" },
-            { text: "Increases (the ending balance in my bank account is greater than it was at the beginning of the month)", 
-              target: "Q9",
-              eval: [{insurancecategory: "termandpermanent", value: (+1)}] },
-            { text: "Stays about the same",
-              target: "Q9", eval: [{insurancecategory: "disability", value: (+1)}]},
-            { text: "I don't know",
-              target: "Q9"}
+            { text: "​Care for a parent", target: "Q9",
+              eval: [{insurancecategory: "longtermcare", value: (+1)}] },
+            { text: "​​Get married", target: "Q9",
+              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "​Start a family", target: "Q9",
+              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
+            { text: "Other", target: "Q9" }
           ],
           answer: []
         },
         Q9: {
-          question: "Occupationally - within the next 5 years do you expect to: (Check all that apply)",
-          type: "checkbox",
+          question: "​​If something happened and you were incapable of working – how long would you be able to use your savings to maintain your lifestyle?",
+          type: "radio",
           skiptarget: "Q10",
           options: [
-            { text: "Change employment / careers", target: "Q10",
-              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
-            { text: "Enter the workforce", target: "Q10" },
-            { text: "Retire", target: "Q10",
-              eval: [{insurancecategory: "othercoverage", value: (+1)}] },
-            { text: "Start a business", target: "Q10", eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
-            { text: "Other", target: "Q10" }
+            { text: "​​​Less than 3 months", target: "Q10",
+              eval: [{insurancecategory: "disability", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}] },
+            { text: "​​​Between 3 – 6 months", target: "Q10", eval: [{insurancecategory: "disability", value: (+1)}] },
+            { text: "​Up to a year", target: "Q10" }
           ],
           answer: []
         },
         Q10: {
-          question: "Personally - within the next 5 years do you expect to: (Check all that apply)",
-          type: "checkbox",
+          question: "​​​If something happened and you could not get out of bed without assistance – is there someone that would be able to take care of you?",
+          type: "radio",
           skiptarget: "Q11",
           options: [
-            { text: "​Care for a parent", target: "Q11",
-              eval: [{insurancecategory: "longtermcare", value: (+1)}] },
-            { text: "​​Get married", target: "Q11",
-              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
-            { text: "​Start a family", target: "Q11",
-              eval: [{insurancecategory: "lifeinsurance", value: (+1)}] },
-            { text: "Other", target: "Q11" }
+            { text: "​​​Yes", target: "Q11" },
+            { text: "​​​No", target: "Q11",
+              eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)} ] },
+            { text: "​​I don’t know", target: "Q11", eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}] }
           ],
           answer: []
         },
-         Q11: {
-          question: "​Financially - within the next 5 years do you expect to: (Check all that apply)",
-          type: "checkbox",
+        Q11: {
+          question: "​​​How much would you be able to comfortably put aside for insurance each month?",
+          type: "radio",
           skiptarget: "Q12",
           options: [
-            { text: "​​Buy a property", target: "Q12" },
-            { text: "​​​Sell a property", target: "Q12" },
-            { text: "​Pay off a loan", target: "Q12" },
-            { text: "Buy a business", target: "Q12" },
-            { text: "​​Sell a business", target: "Q12" },
-            { text: "​Other", target: "Q12" }
+            { text: "​​​Under $50", target: "Q12" },
+            { text: "​​​​$51 - $100", target: "Q12" },
+            { text: "​​​$100 - $250", target: "Q12" },
+            { text: "​​​I’m comfortable spending any amount of money as long as the product makes sense", target: "Q12", eval: [ {insurancecategory: "termorpermanent", value: (+1)}] }
           ],
           answer: []
         },
         Q12: {
-          question: "​​If something happened and you were incapable of working – how long would you be able to use your savings to maintain your lifestyle?",
+          question: "​​​​​What is your gender?",
           type: "radio",
           skiptarget: "Q13",
           options: [
-            { text: "​​​Less than 3 months", target: "Q13",
-              eval: [{insurancecategory: "disability", value: (+1)}] },
-            { text: "​​​Between 3 – 6 months", target: "Q13" },
-            { text: "​Up to a year", target: "Q13" }
+            { text: "​​​​Male", target: "Q13" },
+            { text: "​​​​Female", target: "Q13" },
+            { text: "​​​​Other", target: "Q13" }
           ],
           answer: []
         },
         Q13: {
-          question: "​​​If something happened and you could not get out of bed without assistance – is there someone that would be able to take care of you?",
+          question: "​​​​Do you smoke cigarettes?",
           type: "radio",
           skiptarget: "Q14",
           options: [
-            { text: "​​​Yes", target: "Q14" },
-            { text: "​​​No", target: "Q14",
-              eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)} ] },
-            { text: "​​I don’t know", target: "Q14", eval: [{insurancecategory: "longtermcare", value: (+1)}, {insurancecategory: "criticalillness", value: (+1)}] }
+            { text: "​​​​Yes", target: "Q14" },
+            { text: "No", target: "Q14" }     
           ],
           answer: []
         },
         Q14: {
-          question: "​​​How much would you be able to comfortably put aside for insurance each month?",
-          type: "radio",
-          skiptarget: "Q15",
-          options: [
-            { text: "​​​Under $50", target: "Q15" },
-            { text: "​​​​$51 - $100", target: "Q15" },
-            { text: "​​​$100 - $250", target: "Q15" },
-            { text: "​​​I’m comfortable spending any amount of money as long as the product makes sense", target: "Q15", eval: [ {insurancecategory: "termorpermanent", value: (+1)}] }
-          ],
-          answer: []
-        },
-        Q15: {
-          question: "​​​​​What is your gender?",
-          type: "radio",
-          skiptarget: "Q16",
-          options: [
-            { text: "​​​​Male", target: "Q16" },
-            { text: "​​​​Female", target: "Q16" },
-            { text: "​​​​Other", target: "Q16" }
-          ],
-          answer: []
-        },
-        Q16: {
-          question: "​​​​Do you smoke cigarettes?",
-          type: "radio",
-          skiptarget: "Q17",
-          options: [
-            { text: "​​​​Yes", target: "Q17" },
-            { text: "No", target: "Q17" }     
-          ],
-          answer: []
-        },
-        Q17: {
           page: "lastpage",
           question: "Based on your answers, the following topics are the most relevant to you."
         }

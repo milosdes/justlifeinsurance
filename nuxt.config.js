@@ -46,7 +46,10 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     "@nuxtjs/axios",
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    "@nuxtjs/font-awesome"
+    "@nuxtjs/font-awesome",
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-122855676-1'
+    }]
 
     //"@nuxtjs/bulma",
     //['nuxt-sass-resources-loader', './assets/styles/main.sass']
